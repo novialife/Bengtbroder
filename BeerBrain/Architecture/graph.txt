@@ -1,0 +1,52 @@
+digraph MLOps {
+    rankdir=TB;  // Top to Bottom orientation
+
+    // Step 1: Data Collection
+    subgraph cluster_0 {
+        color=lightgrey;
+        label="Data Collection";
+        node [shape=ellipse, style=filled, color=lightcoral];
+        "Untapped API";
+        "User History";
+        "Untapped API" -> "Data Collection" [label="Beer Data"];
+        "User History" -> "Data Collection" [label="User Preferences"];
+    }
+
+    // Step 2: Data Storage & Processing
+    subgraph cluster_1 {
+        color=lightgrey;
+        label="Data Storage & Processing";
+        node [shape=ellipse, style=filled, color=lightblue];
+        "Data Collection" -> "Data Storage" [label="Store"];
+        "Data Storage" -> "Data Processing" [label="Retrieve"];
+    }
+
+    // Step 3: Model Development
+    subgraph cluster_2 {
+        color=lightgrey;
+        label="Model Development";
+        node [shape=ellipse, style=filled, color=lightpink];
+        "Data Processing" -> "Model Training" [label="Train Data"];
+        "Model Training" -> "Model Validation" [label="Validate"];
+        "Model Validation" -> "Model Deployment" [label="Deploy"];
+    }
+
+    // Step 4: Production & Monitoring
+    subgraph cluster_3 {
+        color=lightgrey;
+        label="Production & Monitoring";
+        node [shape=ellipse, style=filled, color=lightgrey];
+        "Model Deployment" -> "Recommendation Service" [label="Use Model"];
+        "Recommendation Service" -> "Monitoring & Logging" [label="Monitor"];
+    }
+
+    // Step 5: CI/CD
+    subgraph cluster_4 {
+        color=lightgrey;
+        label="CI/CD";
+        node [shape=ellipse, style=filled, color=gold];
+        "Model Training" -> "CI/CD Pipelines" [label="Automate Training"];
+        "Model Deployment" -> "CI/CD Pipelines" [label="Automate Deployment"];
+    }
+}
+
