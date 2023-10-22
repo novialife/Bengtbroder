@@ -36,7 +36,7 @@ Before you begin, ensure you have met the following requirements:
 - [Node.js](https://nodejs.org/) (Lastest)
 - [npm](https://npmjs.com/) (usually comes with Node.js)
 - [FastAPI](https://fastapi.tiangolo.com/)
-- [Anaconda](https://www.anaconda.com/]
+- [Anaconda](https://www.anaconda.com/)
   
 ### Installation
 
@@ -47,22 +47,31 @@ Before you begin, ensure you have met the following requirements:
    cd BeerLens
 
 2. Install the necessary dependencies:
-
-   cd beerlens
-   npm install
-
+  - React
+    ```sh
+     cd beerlens
+     npm install
+- Conda Environment
+  ```sh
    conda create -n Bengtbroder python==3.12
    conda activate Bengtbroder
+  
+- FastAPI
+  ```sh
    cd FastAPI/app
    pip install -r requirements.txt
 
 4. Start the development servers
-
-   In one terminal, run npm start in ./beerlens
-   In another terminal, run uvicorn main:app in ./FastAPI/app
+- In one terminal do the following:
+  ```sh
+   cd ./beerlens
+   npm start
+- In another terminal do the following:
+  ```sh
+   cd ./FastAPI/app
+   uvicorn main:app
 
 5. Visit http://localhost:3000 in your browser to view the app.
-
 
 ## Built With
 
