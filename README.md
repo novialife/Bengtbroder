@@ -58,7 +58,7 @@ Before you begin, ensure you have met the following requirements:
   
 - FastAPI
   ```sh
-   cd ./FastAPI
+   cd ./FastAPI/app
    pip install -r requirements.txt
 
 4. Start the development servers
