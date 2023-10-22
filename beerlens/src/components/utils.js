@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-
+import './styles/Header.css';
 
 
 export function Curtain({ title, info }) {
@@ -33,7 +33,7 @@ export function ImageButton(onclick_path, image_path) {
             }}
             onClick={() => console.log({onclick_path})}>
             <div className="icon">
-                <img src={image_path} alt="image"/>
+                <img src={image_path} alt=''/>
             </div>
         </button>
     );

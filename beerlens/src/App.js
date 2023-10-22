@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Body/>
       {/* Rest of your main content goes here */}
     </div>
   );

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './styles/Header.css';
 import axios from 'axios';
-import Dropdown from 'react-bootstrap/Dropdown'
 
-import {Curtain, ImageButton, HoverDropdown} from './utils';
+import {ImageButton} from './utils';
 
 function Header() {
     const [countries, setCountries] = useState([]);
@@ -18,38 +17,47 @@ function Header() {
             console.error("There was an error fetching countries from backend", error);
         });
     }, [BACKEND_URL]);
+
     return (
-    <header className="header">
+    <div className='container'>
         <div className="left-section">
-            <div className="logo">
-                <img src="/images/logo.png" alt="logo"/>
-            </div>
-            <input
-                type="search"
-                placeholder="Search any beer"
-                className="search-bar"
+            <img className="logo" 
+                src="/images/logo.png" 
+                alt="logo"
             />
+
+            <h1 className='Beer-Name'>Beer Lens</h1>
+            <div class="search-wrapper">
+                <input
+                    type="search"
+                    placeholder="Search any beer"
+                    className="search-bar"
+                />
+                <img class="search-pic"src="/images/search_icon.png"/>
+            </div>
         </div>
 
         <div className="right-section">
-            <div className="dropdown">
-                <label>Ship to</label>
-                <Curtain title={countries[0]} info={countries} />
-            </div>
+            <button className="Header-Button">
+                Our Beers
+            </button>
+            
+            <button className="Header-Button">
+                Contact Us
+            </button>
 
-            <div className="dropdown">
-                <label>Language</label>
-                <Curtain title="English" info={["English", "Swedish"]} />
-            </div>
+            <button className="Header-Button">
+                About Us
+            </button>
+            
+            {ImageButton("/login" , "/images/user_icon.png")}
 
-            <div id="User Icon">
-                {ImageButton("/login" , "/images/user_icon.png")}
-            </div>
-            <div id="Shopping Cart">
-                {ImageButton("/cart", "/images/shopping_cart.png")}
-            </div>
+            {ImageButton("/saved", "/images/saved.png")}
+
+            {ImageButton("/cart", "/images/shopping_cart.png")}
+            
         </div>
-    </header>
+    </div>
     );
 }
 
