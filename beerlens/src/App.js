@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Explore from './components/Explore';
+import Header from './components/ExploreView/Header';
+import Explore from './components/ExploreView/Explore';
 import { Route, Routes } from 'react-router-dom';
 import Details from './components/DetailsView/Details';
 
