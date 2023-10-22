@@ -49,7 +49,7 @@ Before you begin, ensure you have met the following requirements:
 2. Install the necessary dependencies:
   - React
     ```sh
-     cd beerlens
+     cd ./beerlens
      npm install
 - Conda Environment
   ```sh
@@ -58,7 +58,7 @@ Before you begin, ensure you have met the following requirements:
   
 - FastAPI
   ```sh
-   cd FastAPI
+   cd ./FastAPI
    pip install -r requirements.txt
 
 4. Start the development servers
