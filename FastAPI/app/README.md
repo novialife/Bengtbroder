@@ -2,3 +2,5 @@
 
 In ./app run uvicorn main:app to start the FastAPI server to be able to serve the backend to the frontend.
 Run this together with a React server by running npm start in the ../beerlens/ folder
+
+See [https://fastapi.tiangolo.com/tutorial/] for information about the FastAPI server structure
