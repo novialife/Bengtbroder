@@ -1,0 +1,46 @@
+.dropdown-container {
+  display: flex;
+  width: 100%;
+  max-width: 800px; /* Adjust as needed */
+  margin: 10px; /* Centers the container if it's less than 100% of its parent width */
+}
+
+.transparent-dropdown {
+  margin-right: 50px; /* Adjust as needed */
+}
+
+.transparent-dropdown .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+}
+
+.dropdown-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.dropdown-toggle {
+  font-size: 3rem; /* Increase font size of the title */
+}
+
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 20px 0;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on iOS devices */
+}
+
+/* Hide horizontal scrollbar */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll {
+  scrollbar-width: none; /* For Firefox */
+  display: flex;
+  justify-content: center;  /* Horizontally center content */
+  align-items: center;      /* Vertically center content */
+  height: 100vh;            /* Full viewport height */
+  width: 100%;              /* Full width */
+}
