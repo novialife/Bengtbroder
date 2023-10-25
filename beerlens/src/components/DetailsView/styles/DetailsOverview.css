@@ -10,7 +10,7 @@
 }
 
 .detailsOverviewImage {
-  width: 110px;
+  width: 100px;
   margin: auto;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .detailsOverviewName {
-  font-size: 40px;
+  font-size: 35px;
 }
 .detailsOverviewType {
   font-size: 20px;
@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  font-weight: bold;
 }
 
 .detailsOverviewPrice {
@@ -49,7 +50,7 @@
 }
 
 .detailsOverviewCurrency {
-  font-size: large;
+  font-size: medium;
 }
 
 .detailsOverviewRating {
@@ -77,14 +78,15 @@
 .detailsOverviewOriginBtn {
   border-radius: 20px;
   border: 1.5px solid #ffc22d;
-  background: none;
+  background: white;
   padding: 4px;
   width: 120px;
   margin-left: -4px;
+  filter: drop-shadow(1px 1px 1px #817f7f82);
 }
 
 .detailsOverviewOriginBtn:hover {
-  background: rgb(235, 235, 235);
+  background: rgb(242, 242, 242);
 }
 
 .detailsOverviewLinks {
