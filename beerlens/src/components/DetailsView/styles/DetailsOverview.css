@@ -32,6 +32,7 @@
 
 .detailsOverviewName {
   font-size: 35px;
+  font-weight: 900;
 }
 .detailsOverviewType {
   font-size: 20px;
@@ -42,11 +43,11 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  font-weight: bold;
 }
 
 .detailsOverviewPrice {
   font-size: x-large;
+  font-weight: bold;
 }
 
 .detailsOverviewCurrency {
