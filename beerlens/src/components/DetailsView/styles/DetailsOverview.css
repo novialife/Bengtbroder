@@ -4,8 +4,8 @@
   width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 20% 80%;
-  column-gap: 60px;
+  grid-template-columns: 15% 75%;
+  column-gap: 90px;
   align-items: center;
 }
 
@@ -45,14 +45,20 @@
 }
 
 .detailsOverviewPrice {
+  font-size: x-large;
+}
+
+.detailsOverviewCurrency {
   font-size: large;
-  font-weight: bold;
 }
 
 .detailsOverviewRating {
-  margin-bottom: -2px;
+  margin-top: 3.5px;
 }
 
+.detailsOverviewNumbers {
+  font-weight: bold;
+}
 .detailsOverviewOrigin {
   display: flex;
   align-items: center;
@@ -63,12 +69,18 @@
   width: 25px;
 }
 
+.detailsOverviewLine {
+  border-top: 1px solid #ffc22d;
+  margin: 5px 0px;
+}
+
 .detailsOverviewOriginBtn {
   border-radius: 20px;
-  border: 2px solid #ffc22d;
+  border: 1.5px solid #ffc22d;
   background: none;
   padding: 4px;
   width: 120px;
+  margin-left: -4px;
 }
 
 .detailsOverviewOriginBtn:hover {

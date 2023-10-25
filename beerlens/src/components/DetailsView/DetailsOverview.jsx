@@ -20,7 +20,10 @@ const DetailsOverview = () => {
           <BsBookmark className='detailsOverviewSave' />
         </div>
         <span className='detailsOverviewRatingAndPrice'>
-          <span className='detailsOverviewPrice'>{beerData.price + ' €'}</span>
+          <span>
+            <span className='detailsOverviewPrice'>{beerData.price}</span>
+            <span className='detailsOverviewCurrency'>{' ' + '€'}</span>
+          </span>
           <span className='detailsOverviewRating'>
             <Rating
               name='read-only'
@@ -34,7 +37,7 @@ const DetailsOverview = () => {
             />
           </span>
         </span>
-        <div>
+        <div className='detailsOverviewNumbers'>
           <span>{beerData.volume + ' ml'}</span>
           <BsDot size={30} />
           <span>{beerData.alcoholPercentage + ' % vol'}</span>
@@ -45,7 +48,9 @@ const DetailsOverview = () => {
           <span>{beerData.brewery + ', ' + beerData.country}</span>
           <img className='detailsOverviewFlag' src={beerData.flag} />
         </div>
+        <span className='detailsOverviewLine'></span>
         <div>{beerData.overviewDescription}</div>
+        <span className='detailsOverviewLine'></span>
         <div className='detailsOverviewLinks'>
           <button className='detailsOverviewOriginBtn'>Add to cart</button>
           <span className='detailsOverviewOriginDot'>·</span>
