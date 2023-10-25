@@ -6,10 +6,21 @@
   width: 80%;
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-right: 100px;
 }
 
 .about-grid-item {
   text-align: left;
-  background-color: rgb(204, 168, 90);
+  background-color: rgba(204, 168, 90, 0.477);
   padding: 5px;
+}
+
+.about-grid-container h1 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.about-grid-container h2 {
+  font-size: large;
+  font-weight: bold;
 }
