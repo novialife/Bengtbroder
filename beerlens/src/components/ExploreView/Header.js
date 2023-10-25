@@ -24,7 +24,7 @@ function Header() {
   }, [BACKEND_URL]);
 
   return (
-    <div className='container'>
+    <div className='header-container'>
       <div className='left-section'>
         <img className='logo' src='/images/logo.png' alt='logo' />
 
