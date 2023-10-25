@@ -1,9 +1,101 @@
 .detailsOverviewContainer {
   max-height: 100%;
+  padding: 4% 10%;
+  width: 80%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 20% 80%;
+  column-gap: 60px;
+  align-items: center;
 }
 
 .detailsOverviewImage {
-  width: 100px;
+  width: 110px;
+  margin: auto;
+}
+
+.detailsOverviewInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 580px;
+}
+
+.detailsOverviewNameAndSave {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.detailsOverviewSave {
+  font-size: 30px;
+}
+
+.detailsOverviewName {
+  font-size: 40px;
+}
+.detailsOverviewType {
+  font-size: 20px;
+  color: rgb(67, 67, 67);
+}
+
+.detailsOverviewRatingAndPrice {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.detailsOverviewPrice {
+  font-size: large;
+  font-weight: bold;
+}
+
+.detailsOverviewRating {
+  margin-bottom: -2px;
+}
+
+.detailsOverviewOrigin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.detailsOverviewFlag {
+  height: 15px;
+  width: 25px;
+}
+
+.detailsOverviewOriginBtn {
+  border-radius: 20px;
+  border: 2px solid #ffc22d;
+  background: none;
+  padding: 4px;
+  width: 120px;
+}
+
+.detailsOverviewOriginBtn:hover {
+  background: rgb(235, 235, 235);
+}
+
+.detailsOverviewLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detailsOverviewOriginDot {
+  font-size: 90px;
+  padding-bottom: 8px;
+  color: green;
+  margin-right: -12px;
+  line-height: 40px;
+}
+
+.detailsOverviewShare {
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+}
+
+.detailsOverviewShare > * {
+  cursor: pointer;
 }
