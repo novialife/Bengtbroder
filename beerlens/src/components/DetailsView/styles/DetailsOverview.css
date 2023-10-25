@@ -1,0 +1,9 @@
+.detailsOverviewContainer {
+  max-height: 100%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+
+.detailsOverviewImage {
+  width: 100px;
+}
