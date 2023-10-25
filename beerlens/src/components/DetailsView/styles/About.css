@@ -1,6 +1,6 @@
-.description-grid-container {
+.about-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 30px;
   margin: 0 auto;
   width: 80%;
@@ -8,13 +8,8 @@
   padding-bottom: 30px;
 }
 
-.description-grid-item {
+.about-grid-item {
   text-align: left;
   background-color: rgb(204, 168, 90);
   padding: 5px;
-}
-
-.description-grid-container h1 {
-  grid-row: 1;
-  grid-column: 1/-1;
 }
