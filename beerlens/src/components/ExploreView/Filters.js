@@ -10,15 +10,21 @@ export function FilterMatrix({ rows, cols, onButtonClick, labels = [] }) {
 
   const handleClick = (row, col) => {
     const key = `${row}-${col}`;
-    if (onButtonClick) {
-      onButtonClick(row, col, !clickedButtons[key]);
-    }
+    const labelIndex = row * cols + col;
+    const label = labels[labelIndex];
+    const isClicked = !clickedButtons[key];
 
-    setClickedButtons((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+    if (label) {
+      if (onButtonClick) {
+        onButtonClick(label, isClicked);
+      }
+      setClickedButtons((prev) => ({
+        ...prev,
+        [key]: isClicked,
+      }));
+    }
   };
+  
 
   const renderButton = (row, col) => {
     const key = `${row}-${col}`;

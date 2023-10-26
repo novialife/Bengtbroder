@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/Explore.css';
 import { Dropdown } from './utils';
 import { BeerGrid } from './BeerItem';
@@ -6,16 +6,61 @@ import { FilterMatrix, RangeSlider } from './Filters';
 import BeerData  from './BeerData';
 import "@fontsource/inter";
 import searchIcon from '../../assets/images/search_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 
 function Body() {
+  const navigate = useNavigate();
+
   const handleBeerItemClick = (row, col, beer) => {
     console.log('Selected beer:', beer);
+    navigate('/details', { state: { beer } });
   };
 
-  const handleButtonClick = (row, col) => {
-    console.log(`Button clicked at row ${row}, col ${col}`);
+  const [activeFilters, setActiveFilters] = useState({
+    beerType: [],
+    assortmentType: [],
+    flavorProfile: [],
+    packageType: [],
+    
+  });
+
+  const handleButtonClick = (label, isActive) => {
+    setActiveFilters(prevFilters => {
+      const currentFilters = prevFilters.beerType || [];
+      const updatedFilters = isActive
+        ? [...currentFilters, label]
+        : currentFilters.filter(l => l !== label);
+      return {
+        ...prevFilters,
+        beerType: updatedFilters,
+      };
+    });
   };
+  
+  
+  const filterBeers = () => {
+    return BeerData.map(row =>
+      row.filter(beer => {
+        if (!beer) return false;
+        if (activeFilters.beerType.length > 0 && !activeFilters.beerType.includes(beer.type)) {
+          return false;
+        }
+        if (activeFilters.assortmentType.length > 0 && !activeFilters.assortmentType.includes(beer.assortment_type)) {
+          return false;
+        }
+        if (activeFilters.flavorProfile.length > 0 && !activeFilters.flavorProfile.includes(beer.flavor_profile)) {
+          return false;
+        }
+        if (activeFilters.packageType.length > 0 && !activeFilters.packageType.includes(beer.package_type)) {
+          return false;
+        }
+        return true;
+      })
+    ).filter(row => row.length > 0); // Filter out empty rows
+  };
+  
+  
 
   const calcRowsCols = (length) => {
     if (length <= 0) return { rows: 0, cols: 0 };
@@ -24,9 +69,11 @@ function Body() {
     return { rows, cols };
   };
   
+  const filteredBeers = filterBeers();
 
-  const min = Math.floor(BeerData.flat().reduce((min, beer) => beer.price < min.price ? beer : min).price);
-  const max = Math.ceil(BeerData.flat().reduce((max, beer) => beer.price > max.price ? beer : max).price);
+  const flatBeers = filteredBeers.flat();
+  const min = flatBeers.length > 0 ? Math.floor(flatBeers.reduce((min, beer) => beer.price < min.price ? beer : min).price) : 0;
+  const max = flatBeers.length > 0 ? Math.ceil(flatBeers.reduce((max, beer) => beer.price > max.price ? beer : max).price) : 0;
   
   const all_beer_types = BeerData.flat().map(beer => beer.type);
   const unique_beer_types = Array.from(new Set(all_beer_types));
@@ -51,14 +98,19 @@ function Body() {
           <div className='dropdown'>
             <Dropdown />
           </div>
-          <BeerGrid rows={BeerData.length} cols={BeerData[0].length} onButtonClick={handleBeerItemClick} beers={BeerData} />
+          <BeerGrid rows={filteredBeers.length} cols={filteredBeers[0].length} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
         </div>
       </div>
 
       <div className='filter-side'>
         <div className='beer-type-filter'>
           <h4 className='filter-label'>Beer Type</h4>
-          <FilterMatrix rows={beer_type_rows} cols={beer_type_cols} onButtonClick={handleButtonClick} labels={unique_beer_types}/>
+          <FilterMatrix
+            rows={beer_type_rows}
+            cols={beer_type_cols}
+            onButtonClick={handleButtonClick}
+            labels={unique_beer_types}
+          />
         </div>
 
         <div className='price-filter'>
@@ -71,7 +123,11 @@ function Body() {
 
         <div className='assortment-filter'>
           <h4 className='filter-label'>Assortment</h4>
-          <FilterMatrix rows={assortment_type_rows} cols={assortment_type_cols} onButtonClick={handleButtonClick} labels={unique_assortment_types}/>
+          <FilterMatrix 
+            rows={assortment_type_rows} 
+            cols={assortment_type_cols} 
+            onButtonClick={handleButtonClick} 
+            labels={unique_assortment_types}/>
         </div>
 
         <div className='country-filter'>
@@ -98,12 +154,20 @@ function Body() {
 
         <div className='flavor-profile-filter'>
           <h4 className='filter-label'>Flavor Profile</h4>
-          <FilterMatrix rows={flavor_profile_rows} cols={flavor_profile_cols} onButtonClick={handleButtonClick} labels={unique_flavor_profiles}/>
+          <FilterMatrix 
+            rows={flavor_profile_rows} 
+            cols={flavor_profile_cols} 
+            onButtonClick={handleButtonClick} 
+            labels={unique_flavor_profiles}/>
         </div>
 
         <div className='package-filter'>
           <h4 className='filter-label'>Package</h4>
-          <FilterMatrix rows={package_type_rows} cols={package_type_cols} onButtonClick={handleButtonClick} labels={unique_package_types} />
+          <FilterMatrix 
+            rows={package_type_rows} 
+            cols={package_type_cols} 
+            onButtonClick={handleButtonClick} 
+            labels={unique_package_types} />
         </div>
       
         <div className='alcohol-percentage-filter'>

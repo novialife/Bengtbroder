@@ -22,7 +22,6 @@ export class BeerInfo {
   }
 }
 
-
 export function BeerGrid({ rows, cols, onButtonClick, beers }) {
   const handleClick = (beer) => {
     if (onButtonClick) {
@@ -30,52 +29,45 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
     }
   };
 
-  const renderItem = (beer, row, col) => (
-    <div
-      key={`${row}-${col}`}
-      className="BeerItem"
-      onClick={() => handleClick(beer)}
-      style={{ cursor: 'pointer' }}  // Added cursor style to indicate it's clickable
-    >
-      {beer ? (
-      <>
-        <div className="Info-Image">
-          <div className='Info'>
-            <div>{beer.type}</div>
-            <div>{beer.name}</div>
-            <div>{beer.brewery}</div>
-            <div className='country-with-flag'>
-              <FlagIcon code={beer.countryCode} style={{ width: '15px', height: '10 px' }} />
-              <span>{beer.country}</span>
+  const renderItem = (beer, row, col) => {
+    if (!beer) return null;  // Don't render anything if there is no beer
+    return (
+      <div
+        key={`${row}-${col}`}
+        className="BeerItem"
+        onClick={() => handleClick(beer)}
+        style={{ cursor: 'pointer' }}  // Added cursor style to indicate it's clickable
+      >
+        <>
+          <div className="Info-Image">
+            <div className='Info'>
+              <div>{beer.type}</div>
+              <div>{beer.name}</div>
+              <div>{beer.brewery}</div>
+              <div className='country-with-flag'>
+                <FlagIcon code={beer.countryCode} style={{ width: '15px', height: '10 px' }} />
+                <span>{beer.country}</span>
+              </div>
+              <div className="BeerItem-info">
+                <div>{beer.volume}</div>
+                <div>{beer.abv}</div>
+                <div>${beer.price}</div>
+              </div>
             </div>
-
-            <div className="BeerItem-info">
-              <div>{beer.volume}</div>
-              <div>{beer.abv}</div>
-              <div>${beer.price}</div>
-            </div>
-
+            <img src={beer.BeerIcon} alt=''/>
           </div>
-          
-          <img src={beer.BeerIcon} alt=''/>
-        </div>
-
-        <button className="AddToCart-btn">Add to Cart</button>
-      </>
-    ) : (
-      `${row},${col}`
-    )}
-  </div>
-);
-
+          <button className="AddToCart-btn">Add to Cart</button>
+        </>
+      </div>
+    );
+  };
+  
   const renderRow = (row) => {
     const beerRow = beers ? beers[row] : null;
+    if (!beerRow) return null;  // Don't render anything if there is no beer row
     return (
       <div key={row} className="BeerGrid-row">
-        {Array.from({ length: cols }, (_, col) => {
-          const beer = beerRow ? beerRow[col] : null;
-          return renderItem(beer, row, col);
-        })}
+        {beerRow.map((beer, col) => renderItem(beer, row, col))}
       </div>
     );
   };
