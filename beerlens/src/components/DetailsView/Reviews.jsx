@@ -6,8 +6,8 @@ import { beerData } from '../../beerData';
 
 const Reviews = () => {
   return (
-    <div className='reviewsContainer'>
-      <h2>Reviews</h2>
+    <div id='reviews' className='reviewsContainer'>
+      <h1 className='reviewsHeader'>Reviews</h1>
       <div class='parent'>
         <div class='div1'>
           <BigReviewCard />

@@ -1,0 +1,11 @@
+.similarBeersHeader {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.similarBeersContainer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 80%;
+  margin: 0 auto;
+}

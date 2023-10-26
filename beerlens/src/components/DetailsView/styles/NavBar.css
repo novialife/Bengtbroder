@@ -1,10 +1,24 @@
 .navbarContainer {
   text-align: center;
-  font-size: medium;
+  font-size: large;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .navbarItem {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.navbarDetailsLine {
+  margin: auto;
+  display: block;
+  width: 90%;
+  border-top: 1px solid #ffc22d;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.navbarItem:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
