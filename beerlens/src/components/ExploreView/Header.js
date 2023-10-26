@@ -33,13 +33,13 @@ function Header() {
         <img className='logo' src={logo} alt='logo' />
 
         <h1 className='Beer-Name'>Beer Lens</h1>
-        <div class='search-wrapper'>
+        <div className='search-wrapper'>
           <input
             type='search'
             placeholder='Search any beer'
             className='search-bar'
           />
-          <img class='search-pic' src={searchIcon} />
+          <img className='search-pic' src={searchIcon} />
         </div>
       </div>
 

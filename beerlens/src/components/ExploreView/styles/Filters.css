@@ -1,0 +1,136 @@
+.filter-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+  }
+  
+  .filter-row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 110px;
+    height: 40px;
+    
+    background-color: white;
+    border: 2px solid #FFC22D;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .filter-button.clicked {
+    background-color: #FFC22D;
+  }
+  
+
+  .filter-label {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .assortment-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+    
+  }
+
+  .flavor-profile-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .price-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .country-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .brewery-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .package-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .alcohol-percentage-filter {
+    margin-top: 30px;
+    margin-right: 50px;
+  }
+
+  .filter-search-wrapper {
+    position: relative;
+  }
+  
+  .filter-search-wrapper img {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: none;
+  }
+  
+  .filter-search-wrapper input {
+    padding: 20px 40px;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .alcohol-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .alcohol-percentage-input {
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    text-align: right;
+  }
+  
+  .input-label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: 500;
+    color: black;
+    align-self: flex-start;
+  }
+  
+  .percentage-text {
+    font-size: 20px;
+    margin: 0 10px;
+    padding-top: 30px;
+    align-self: center;
+  }
+  
+
+  
