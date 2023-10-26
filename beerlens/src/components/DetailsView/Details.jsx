@@ -5,10 +5,11 @@ import Pairings from './Pairings';
 import About from './About';
 import NavBar from './NavBar';
 import Reviews from './Reviews';
+import './styles/Details.css';
 
 const Details = () => {
   return (
-    <div>
+    <div className='detailsContainer'>
       <DetailsOverview />
       <NavBar />
       <TasteDescription />
