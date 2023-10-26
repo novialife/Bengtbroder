@@ -5,7 +5,7 @@ import "@fontsource/inter";
 
 
 export class BeerInfo {
-  constructor(id, BeerIcon, name, brewery, country, countryCode, volume, abv, price, type) {
+  constructor(id, BeerIcon, name, brewery, country, countryCode, volume, abv, price, type, assortment_type, flavor_profile, package_type) {
     this.id = id;
     this.BeerIcon = BeerIcon;
     this.name = name;
@@ -16,6 +16,9 @@ export class BeerInfo {
     this.abv = abv;
     this.price = price;
     this.type = type;
+    this.assortment_type = assortment_type;
+    this.flavor_profile = flavor_profile;
+    this.package_type = package_type;
   }
 }
 
@@ -49,7 +52,7 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
             <div className="BeerItem-info">
               <div>{beer.volume}</div>
               <div>{beer.abv}</div>
-              <div>{beer.price}</div>
+              <div>${beer.price}</div>
             </div>
 
           </div>

@@ -1,45 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import './styles/Filters.css';
 
-export function FilterMatrix({ rows, cols, onButtonClick, labels }) {
+export function FilterMatrix({ rows, cols, onButtonClick, labels = [] }) {
   const [clickedButtons, setClickedButtons] = useState({});
 
   const handleClick = (row, col) => {
+    const key = `${row}-${col}`;
     if (onButtonClick) {
-      onButtonClick(row, col);
+      onButtonClick(row, col, !clickedButtons[key]);
     }
 
-    // Toggle the clicked state of the button
     setClickedButtons((prev) => ({
       ...prev,
-      [`${row}-${col}`]: !prev[`${row}-${col}`],
+      [key]: !prev[key],
     }));
   };
 
   const renderButton = (row, col) => {
-    const isClicked = clickedButtons[`${row}-${col}`];
+    const key = `${row}-${col}`;
+    const isClicked = clickedButtons[key];
     const buttonClass = isClicked ? 'filter-button clicked' : 'filter-button';
+    const labelIndex = row * cols + col;
+    const label = labels[labelIndex];
+
+    if (!label) return null; // If there's no label, don't create the button
 
     return (
       <button
-        key={`${row}-${col}`}
+        key={key}
         className={buttonClass}
         onClick={() => handleClick(row, col)}
       >
-        {labels && labels[row] && labels[row][col] ? labels[row][col] : `${row},${col}`}
+        {label}
       </button>
     );
   };
 
-  const renderRow = (row) => (
-    <div key={row} className="filter-row">
-      {Array.from({ length: cols }, (_, col) => renderButton(row, col))}
-    </div>
-  );
+  const renderRow = (row) => {
+    const buttons = Array.from({ length: cols }, (_, col) => renderButton(row, col));
+    const visibleButtons = buttons.filter(Boolean); // Filter out null values
+    if (visibleButtons.length === 0) return null; // If no buttons in this row, don't create the row
+
+    return (
+      <div key={row} className="filter-row">
+        {visibleButtons}
+      </div>
+    );
+  };
 
   return (
     <div className="filter-matrix">
@@ -47,7 +58,6 @@ export function FilterMatrix({ rows, cols, onButtonClick, labels }) {
     </div>
   );
 }
-
 
 const StyledSlider = styled(Slider)(({ theme }) => ({
   '& .MuiSlider-thumb': {
@@ -65,26 +75,28 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
   },
 }));
 
-export function RangeSlider() {
-  const [range, setRange] = useState([0, 100]);
+export function RangeSlider({ min, max }) {
+  const [range, setRange] = useState([min, max]);
   const minVal = range[0];
   const maxVal = range[1];
+
   return (
     <div>
       <Box sx={{ width: 300 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography color="black" sx={{ fontWeight: 'bold' }}>{minVal}$</Typography>
-          <Typography color="black" sx={{ fontWeight: 'bold' }}>{maxVal}$</Typography>
+          <Typography color="black" sx={{ fontWeight: 'bold' }}>${minVal}</Typography>
+          <Typography color="black" sx={{ fontWeight: 'bold' }}>${maxVal}</Typography>
         </Box>
         <StyledSlider
           value={range}
           onChange={(event, newValue) => setRange(newValue)}
           valueLabelDisplay="auto"
           aria-labelledby="range-slider"
-          min={0}
-          max={100}
+          min={min}
+          max={max}
         />
       </Box>
     </div>
   );
 }
+
