@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/TasteDescription.css";
+import { beerData } from "../../beerData";
 
 const TasteDescription = () => {
   return (
@@ -7,22 +8,16 @@ const TasteDescription = () => {
       <div className="description-grid-container">
         <h1 style={{ textAlign: "left" }}>Taste Description</h1>
         <div className="description-grid-item">
-          <h2>Flavour</h2>
-          <p>
-            Malty taste with hints of rye bread, crackling, orange peel, spices
-            and dried fruit.
-          </p>
+          <h2>Flavor</h2>
+          <p>{beerData.tasteDescription.flavor}</p>
         </div>
         <div className="description-grid-item">
           <h2>Scent</h2>
-          <p>
-            Malty aroma with hints of rye bread, crackers, orange marmalade,
-            spices and dried fruit.
-          </p>
+          <p>{beerData.tasteDescription.scent}</p>
         </div>
         <div className="description-grid-item">
-          <h2>Colour</h2>
-          <p>Brownish yellow color.</p>
+          <h2>Color</h2>
+          <p>{beerData.tasteDescription.color}</p>
         </div>
       </div>
     </div>

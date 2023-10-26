@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/Pairings.css";
+import { beerData } from "../../beerData";
 
 const Pairings = () => {
   return (
@@ -10,17 +11,14 @@ const Pairings = () => {
         <div className="pairings-grid-item">
           <h2>Food that go well with this beer</h2>
           <ul>
-            <li>Chocolate Mousse</li>
-            <li>Chocolate Mousse</li>
-            <li>Chocolate Mousse</li>
+            {beerData.pairings.food.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
           </ul>
         </div>
         <div className="pairings-grid-item">
           <h2>Serving tips</h2>
-          <p>
-            Served at 6-8°C as a companion drink, or with not too sweet fruit
-            and berry desserts.
-          </p>
+          <p>{beerData.pairings.servingTips}</p>
         </div>
       </div>
     </div>
