@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/BeerType.css';
-import './styles/Explore.css';
+import './styles/Dropdown.css';
 import { useState } from 'react';
 
 export function ImageButton(onclick_path, image_path) {
@@ -20,37 +20,6 @@ export function ImageButton(onclick_path, image_path) {
         </button>
     );
 }
-
-export function ButtonMatrix({ rows, cols, onButtonClick, labels }) {
-  const handleClick = (row, col) => {
-    if (onButtonClick) {
-      onButtonClick(row, col);
-    }
-  };
-
-  const renderButton = (row, col) => (
-    <button
-      key={`${row}-${col}`}
-      className="filter-button"
-      onClick={() => handleClick(row, col)}
-    >
-      {labels && labels[row] && labels[row][col] ? labels[row][col] : `${row},${col}`}
-    </button>
-  );
-
-  const renderRow = (row) => (
-    <div key={row} className="matrix-row">
-      {Array.from({ length: cols }, (_, col) => renderButton(row, col))}
-    </div>
-  );
-
-  return (
-    <div className="matrix">
-      {Array.from({ length: rows }, (_, row) => renderRow(row))}
-    </div>
-  );
-}
-
 
 export function Dropdown() {
 
