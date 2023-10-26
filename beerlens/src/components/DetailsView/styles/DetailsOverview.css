@@ -1,24 +1,23 @@
 .detailsOverviewContainer {
   max-height: 100%;
-  padding: 0 10%;
-  width: 80%;
+  padding: 4% 10%;
+  padding-top: 2%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10%;
+  width: 1000px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 15% 75%;
-  column-gap: 90px;
-  align-items: center;
 }
 
 .detailsOverviewImage {
   width: 100px;
-  margin: auto;
 }
 
 .detailsOverviewInfo {
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
-  width: 580px;
+  row-gap: 8px;
+  width: 600px;
 }
 
 .detailsOverviewNameAndSave {
@@ -28,6 +27,7 @@
 }
 .detailsOverviewSave {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .detailsOverviewName {
@@ -35,7 +35,8 @@
   font-weight: 900;
 }
 .detailsOverviewType {
-  font-size: 20px;
+  margin-bottom: -5px;
+  font-size: 16px;
   color: rgb(67, 67, 67);
 }
 
@@ -78,7 +79,7 @@
 
 .detailsOverviewOriginBtn {
   border-radius: 20px;
-  border: 1.5px solid #ffc22d;
+  border: 1px solid #ffc22d;
   background: white;
   padding: 4px;
   width: 120px;

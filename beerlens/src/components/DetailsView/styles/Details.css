@@ -1,4 +1,11 @@
 .detailsContainer {
-  padding: 5%;
+  padding: 2%;
   margin: 0 auto;
+}
+
+.detailsLine {
+  margin: 0 auto;
+  display: block;
+  width: 90%;
+  border-top: 1px solid #ffc22d;
 }

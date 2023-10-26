@@ -5,18 +5,23 @@ import Pairings from './Pairings';
 import About from './About';
 import NavBar from './NavBar';
 import Reviews from './Reviews';
+import './styles/Details.css';
+import SimilarBeers from './SimilarBeers';
 
 const Details = () => {
   return (
-    <div>
+    <div className='detailsContainer'>
       <DetailsOverview />
       <NavBar />
       <TasteDescription />
-      <hr />
+      <span className='detailsLine' />
       <Pairings />
-      <hr />
+      <span className='detailsLine' />
       <About />
+      <span className='detailsLine' />
       <Reviews />
+      <span className='detailsLine' />
+      <SimilarBeers />
     </div>
   );
 };

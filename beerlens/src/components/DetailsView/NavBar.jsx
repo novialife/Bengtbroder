@@ -1,39 +1,46 @@
-import React from "react";
-import "./styles/NavBar.css";
-import { beerData } from "../../beerData";
+import React from 'react';
+import './styles/NavBar.css';
+import { beerData } from '../../beerData';
 
 const NavBar = () => {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <div>
-      <hr />
-      <div className="navbarContainer">
+      <span className='navbarDetailsLine'></span>
+      <div className='navbarContainer'>
         <span
-          className="navbarItem"
-          onClick={() => scrollToSection("tasteDescription")}
+          className='navbarItem'
+          onClick={() => scrollToSection('tasteDescription')}
         >
           Taste Description
         </span>
 
         <span
-          className="navbarItem"
-          onClick={() => scrollToSection("pairings")}
+          className='navbarItem'
+          onClick={() => scrollToSection('pairings')}
         >
           Pairings
         </span>
-        <span className="navbarItem" onClick={() => scrollToSection("about")}>
+        <span className='navbarItem' onClick={() => scrollToSection('about')}>
           About the Beer
         </span>
-        <span className="navbarItem">Reviews</span>
-        <span className="navbarItem">You may also like</span>
+        <span className='navbarItem' onClick={() => scrollToSection('reviews')}>
+          Reviews
+        </span>
+        <span
+          className='navbarItem'
+          onClick={() => scrollToSection('similarBeers')}
+        >
+          You may also like
+        </span>
       </div>
-      <hr />
+      <span className='navbarDetailsLine'></span>
     </div>
   );
 };
