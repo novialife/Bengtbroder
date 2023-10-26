@@ -1,0 +1,19 @@
+.reviewCardContainer {
+  padding: 15px;
+}
+
+.reviewCardRaterInfo {
+  display: flex;
+  column-gap: 9px;
+  font-size: small;
+  align-items: center;
+}
+
+.reviewCardName {
+  font-weight: bolder;
+}
+
+.reviewCardText {
+  padding-top: 4px;
+  font-size: 15px;
+}
