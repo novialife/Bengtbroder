@@ -4,7 +4,7 @@ import { beerData } from "../../beerData";
 
 const TasteDescription = () => {
   return (
-    <div>
+    <div id="tasteDescription">
       <div className="description-grid-container">
         <h1 style={{ textAlign: "left" }}>Taste Description</h1>
         <div className="description-grid-item">

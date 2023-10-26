@@ -4,7 +4,7 @@ import { beerData } from "../../beerData";
 
 const About = () => {
   return (
-    <div className="about-grid-container">
+    <div className="about-grid-container" id="about">
       <h1>About the Beer</h1>
       <div className="about-grid-item">
         <h2>Ingredients</h2>

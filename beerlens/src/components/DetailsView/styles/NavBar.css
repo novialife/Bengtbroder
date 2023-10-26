@@ -1,0 +1,10 @@
+.navbarContainer {
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.navbarItem {
+  padding-left: 30px;
+  padding-right: 30px;
+}

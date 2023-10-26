@@ -4,7 +4,7 @@ import { beerData } from "../../beerData";
 
 const Pairings = () => {
   return (
-    <div>
+    <div id="pairings">
       <div className="pairings-grid-container">
         <h1 style={{ textAlign: "left" }}>Pairings</h1>
 
