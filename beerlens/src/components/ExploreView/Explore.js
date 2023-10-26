@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/Explore.css';
 import { Dropdown } from './utils';
 import { BeerGrid } from './BeerItem';
-import { FilterMatrix } from './Filters';
+import { FilterMatrix, RangeSlider } from './Filters';
 import BeerData  from './BeerData';
 import "@fontsource/inter";
 import searchIcon from '../../assets/images/search_icon.png';
@@ -15,15 +15,17 @@ function Body() {
 
   const handleButtonClick = (row, col) => {
     console.log(`Button clicked at row ${row}, col ${col}`);
-  }
+  };
 
   return (
     <div className='container'>
-      <div className='BeerGrid-side'>
-        <div className='dropdown'>
-          <Dropdown />
+      <div className='BeerGrid-container'>
+        <div className='BeerGrid-side'>
+          <div className='dropdown'>
+            <Dropdown />
+          </div>
+          <BeerGrid rows={4} cols={2} onButtonClick={handleBeerItemClick} beers={BeerData} />
         </div>
-        <BeerGrid rows={4} cols={2} onButtonClick={handleBeerItemClick} beers={BeerData} />
       </div>
 
       <div className='filter-side'>
@@ -34,6 +36,9 @@ function Body() {
 
         <div className='price-filter'>
           <h4 className='filter-label'>Price</h4>
+          <div className='price-slider'>
+            <RangeSlider/>
+          </div>
         </div>
 
 
@@ -71,7 +76,7 @@ function Body() {
 
         <div className='package-filter'>
           <h4 className='filter-label'>Package</h4>
-          <FilterMatrix rows={1} cols={2} onButtonClick={handleButtonClick} />
+          <FilterMatrix rows={1} cols={2} onButtonClick={handleButtonClick} labels={[["Bottle", "Can"]]} />
         </div>
       
         <div className='alcohol-percentage-filter'>

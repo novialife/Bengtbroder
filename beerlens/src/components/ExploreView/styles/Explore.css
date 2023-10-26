@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    justify-content: space-between; /* Add this to distribute space between the children */
     position: relative;
 }
 
@@ -11,13 +10,11 @@
 .BeerGrid-side, .filter-side, .dropdown {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .BeerGrid-side, .filter-side {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
     padding-top: 50px; /* Adjust as needed - creates space for .top-row */
 }
 
@@ -28,4 +25,21 @@
 .filter-side {
     order: -1;
 }
+
+.BeerGrid-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .BeerGrid-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align children (dropdown and BeerGrid) to the right */
+  }
+  
+  
+  .dropdown {
+    margin-bottom: 5px;
+    width: 200px; /* Set a specific width for the dropdown */
+  }
   
