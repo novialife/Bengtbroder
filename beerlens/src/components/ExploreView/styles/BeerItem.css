@@ -18,12 +18,10 @@
   justify-content: space-between;
   border: none;
   border-radius: 10px;
-  background: #FAFAFAED;
-  position: relative; 
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);  /* Added box shadow here */
+  background: #fafafaed;
+  position: relative;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Added box shadow here */
 }
-
-
 
 .Info-Image {
   display: flex;
@@ -34,12 +32,11 @@
   gap: 20px; /* Adds space between child elements */
 }
 
-.country-with-flag{
+.country-with-flag {
   justify-content: space-between;
   display: flex;
   gap: 5px;
 }
-
 
 .BeerItem img {
   width: 80px;
@@ -61,7 +58,6 @@
   font-size: 14px;
   font-weight: 400;
   font-family: 'Inter';
-
 }
 
 /* Beer Name */
@@ -71,7 +67,6 @@
   margin-bottom: 5px;
   align-self: flex-start;
   font-family: 'Inter';
-
 }
 
 /* Brewery */
@@ -100,18 +95,16 @@
   font-weight: bold;
 }
 
-
 .BeerItem-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 80%; 
+  width: 80%;
 }
 
 .BeerItem-info > div {
   font-size: 14px;
 }
-
 
 .AddToCart-btn {
   align-self: flex-start;
@@ -119,20 +112,19 @@
   justify-content: center;
   align-items: center;
 
-
   width: 100px;
   height: 20px;
   margin-top: 15px;
   padding: 10px 20px;
   border-radius: 20px;
 
-  border-color: #FFC22D;
+  border-color: #ffc22d;
   border-style: solid;
   background-color: white;
   border-width: 1px;
 
   color: #000000; /* Adjust if the color doesn't match the exact hue you want */
-  font-weight: bold;  
+  font-weight: bold;
   font-size: 10px;
   cursor: pointer;
   position: relative; /* Needed for the pseudo-elements */
@@ -140,7 +132,7 @@
 
   /* Gradient border using pseudo-elements */
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: -2px;
     right: -2px;
@@ -148,19 +140,19 @@
     left: -2px;
     z-index: -1;
     background: linear-gradient(white, white),
-                linear-gradient(to right, #FFD740, #FFA000);
+      linear-gradient(to right, #ffd740, #ffa000);
     border-radius: inherit;
     transition: all 0.3s ease;
   }
 
   /* Hover effect */
   &:hover {
-      color: #FFD740;
-      &:before {
-          top: -4px;
-          right: -4px;
-          bottom: -4px;
-          left: -4px;
-      }
+    color: #ffd740;
+    &:before {
+      top: -4px;
+      right: -4px;
+      bottom: -4px;
+      left: -4px;
+    }
   }
 }
