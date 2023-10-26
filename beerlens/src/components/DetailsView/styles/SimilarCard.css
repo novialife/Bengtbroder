@@ -1,4 +1,4 @@
-.outer {
+.similarCardOuter {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -41,17 +41,24 @@
 
 .similarCardName {
   font-weight: bold;
-  font-size: x-large;
+  font-size: 26px;
 }
 
 .similarCardType {
   font-size: small;
   margin-bottom: -5px;
-  color: rgb(112, 110, 110);
+  color: rgb(105, 104, 104);
+}
+
+.similarCardBrewery {
+  font-weight: bold;
+  font-size: large;
+  margin-top: -5px;
+  color: rgb(101, 100, 100);
 }
 
 .similarCardImage {
-  margin-right: 40px;
+  margin-right: 50px;
   margin-left: auto;
   width: 40px;
   display: inline;
@@ -88,6 +95,6 @@
   margin: 10px;
   font-size: 25px;
   position: absolute;
-  top: -5px;
-  right: 15px;
+  top: -1px;
+  right: 20px;
 }

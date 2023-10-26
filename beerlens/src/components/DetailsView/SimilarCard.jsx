@@ -6,7 +6,7 @@ import { BsBookmark } from 'react-icons/bs';
 
 const SimilarCard = () => {
   return (
-    <div className='outer'>
+    <div className='similarCardOuter'>
       <div className='similarCardContainer'>
         <div className='similarCardTopInfo'>
           <span className='similarCardTopLeftInfo'>
