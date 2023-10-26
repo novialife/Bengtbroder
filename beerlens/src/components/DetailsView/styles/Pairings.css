@@ -1,6 +1,6 @@
 .pairings-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
   margin: 0 auto;
   width: 80%;
@@ -14,6 +14,7 @@
 }
 
 .pairings-grid-container h1 {
+  margin-bottom: -10px;
   grid-row: 1;
   grid-column: 1/-1;
   font-size: x-large;

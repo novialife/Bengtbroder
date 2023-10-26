@@ -1,7 +1,6 @@
 .about-grid-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
   margin: 0 auto;
   width: 80%;
   padding-top: 30px;
@@ -17,6 +16,7 @@
 .about-grid-container h1 {
   font-size: x-large;
   font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .about-grid-container h2 {

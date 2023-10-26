@@ -44,7 +44,7 @@ export const beerData = {
     {
       name: 'Hanna Snarberg',
       rating: 4,
-      text: 'I really recommend this beer. It is quite similar to Rocheford 10.',
+      text: 'I really recommend this beer. It is quite similar to Rocheford 10. Will definitely order it again ',
     },
     {
       name: 'Alfred Knowles',
@@ -54,7 +54,7 @@ export const beerData = {
     {
       name: 'Filip Mattsson',
       rating: 4,
-      text: 'Similar in taste to Gueuzerie. But this was even better.',
+      text: 'Similar in taste to Gueuzerie. But this was even better. It was amazing actually.',
     },
     {
       name: 'Mervan Kaya',
