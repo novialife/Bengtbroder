@@ -64,10 +64,6 @@ export const beerData = {
   ],
   ratings: {
     average: 4.2,
-    stars5: 75,
-    stars4: 15,
-    stars3: 5,
-    stars2: 3,
-    stars1: 2,
+    starsDistribution: [75, 15, 5, 3, 2],
   },
 };

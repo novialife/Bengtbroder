@@ -1,6 +1,6 @@
 .detailsOverviewContainer {
   max-height: 100%;
-  padding: 4% 10%;
+  padding: 0 10%;
   width: 80%;
   margin: 0 auto;
   display: grid;
@@ -83,7 +83,6 @@
   padding: 4px;
   width: 120px;
   margin-left: -4px;
-  filter: drop-shadow(1px 1px 1px #817f7f82);
 }
 
 .detailsOverviewOriginBtn:hover {

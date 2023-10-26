@@ -1,0 +1,43 @@
+.bigReviewCardContainer {
+  text-align: center;
+  padding: 10px;
+}
+
+.bigReviewCardRating {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.bigReviewCardProgress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bigReviewCardProgressBar {
+  display: inline-block;
+  margin: 10px;
+  background: rgb(216, 216, 216);
+  height: 15px;
+  width: 150px;
+  border-radius: 5px;
+}
+
+.bigReviewCardProgressBarPercentage {
+  background: #000000;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.bigReviewCardBtn {
+  margin: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #ffc22d;
+  background: white;
+  padding: 4px;
+  width: 250px;
+}
+
+.bigReviewCardBtn:hover {
+  background: rgb(242, 242, 242);
+}
