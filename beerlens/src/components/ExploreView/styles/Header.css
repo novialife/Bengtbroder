@@ -1,49 +1,45 @@
 .header-container {
-  width: 100%;
+  position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
-  background: #FFE298;
+  padding: 0px 30px;
+  background: #ffe298;
   border-bottom: 1px solid #e0e0e0;
   min-width: 100vw;
+  height: fit-content;
 }
-  
+
 .left-section {
-  width: 100%;
-  height: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: #FFE298;
+  background: #ffe298;
 }
 
 .right-section {
-  width: 100%;
-  height: 100px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background: #FFE298;
+  background: #ffe298;
 }
 
-.logo{
+.logo {
   margin-right: 20px;
   padding: 10px;
   border-radius: 80%;
   display: flex;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
-
 
 .icon {
   margin: 0 20px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 .search-wrapper {
@@ -52,10 +48,10 @@
 
 .search-wrapper img {
   position: absolute;
-  top: 8px;
-  left: 30px;
-  width: 35px;
-  height: 35px;
+  top: 25%;
+  left: 35px;
+  width: 20px;
+  height: 20px;
   background-color: none;
 }
 
@@ -64,31 +60,29 @@
   margin: 0 20px;
   border-radius: 50px;
   border: 1px solid #e0e0e0;
-  width: 400px;
-  height: 50px;
-  font-size: 20px;
+  width: 350px;
+  height: 15px;
+  font-size: 15px;
   text-align: left;
 }
 
 .Beer-Name {
-  width: 250px;
+  width: max-content;
   left: 120px;
-  font-size: 50px;
+  margin-right: 100px;
+  font-size: 30px;
   font-weight: 700;
   text-align: left;
-  color: #E99107;
+  color: #e99107;
 }
-
 
 .BeersAboutContactUs {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
 }
 
-.OurBeers{
-  width: 300px;
-  font-size: 30px;
+.OurBeers {
+  font-size: 20px;
   font-weight: 400;
   text-align: center;
   color: #000000;
@@ -96,8 +90,8 @@
 
 .Header-Button {
   margin: 10px 10px;
-  width: 200px;
-  font-size: 30px;
+  width: max-content;
+  font-size: 20px;
   font-weight: 400;
   text-align: left;
   background: none;
