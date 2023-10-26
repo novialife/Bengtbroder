@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/SimilarBeers.css';
+import SimilarCard from './SimilarCard';
 
 const SimilarBeers = () => {
   return (
@@ -9,7 +10,7 @@ const SimilarBeers = () => {
         <tbody>
           {[...Array(6)].map((x, i) => (
             <div class='card' key={i}>
-              <h2>Card</h2>
+              <SimilarCard />
             </div>
           ))}
         </tbody>
