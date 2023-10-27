@@ -29,14 +29,19 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
     }
   };
 
+  const addItemToCart = (beer, event) => {
+    event.stopPropagation();  // Prevent click event from bubbling up to the BeerItem
+    console.log('Added to cart:', beer);
+  };
+
   const renderItem = (beer, row, col) => {
-    if (!beer) return null;  // Don't render anything if there is no beer
+    if (!beer) return null;
     return (
       <div
         key={`${row}-${col}`}
         className="BeerItem"
         onClick={() => handleClick(beer)}
-        style={{ cursor: 'pointer' }}  // Added cursor style to indicate it's clickable
+        style={{ cursor: 'pointer' }}
       >
         <>
           <div className="Info-Image">
@@ -56,7 +61,9 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
             </div>
             <img src={beer.BeerIcon} alt=''/>
           </div>
-          <button className="AddToCart-btn">Add to Cart</button>
+          <button className="AddToCart-btn" onClick={(e) => addItemToCart(beer, e)}>
+                Add to Cart
+          </button>
         </>
       </div>
     );

@@ -24,7 +24,6 @@ export function FilterMatrix({ rows, cols, onButtonClick, labels = [] }) {
       }));
     }
   };
-  
 
   const renderButton = (row, col) => {
     const key = `${row}-${col}`;
@@ -81,8 +80,16 @@ const StyledSlider = styled(Slider)(({ theme }) => ({
   },
 }));
 
-export function RangeSlider({ min, max }) {
+export function RangeSlider({ min, max, onChange }) {
   const [range, setRange] = useState([min, max]);
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(range);
+    }
+  }, [range, onChange]);
+
+
   const minVal = range[0];
   const maxVal = range[1];
 
