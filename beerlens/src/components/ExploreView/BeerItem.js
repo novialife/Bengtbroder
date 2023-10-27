@@ -55,7 +55,7 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
               </div>
               <div className="BeerItem-info">
                 <div>{beer.volume}</div>
-                <div>{beer.abv}</div>
+                <div>{beer.abv}%</div>
                 <div>${beer.price}</div>
               </div>
             </div>

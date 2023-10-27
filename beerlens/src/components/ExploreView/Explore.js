@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Explore.css';
 import { Dropdown } from './utils';
 import { BeerGrid } from './BeerItem';
@@ -22,7 +22,8 @@ function Body() {
     assortmentType: [],
     flavorProfile: [],
     packageType: [],
-    
+    alcoholPercentage: { from: '', to: '' },
+
   });
 
   const handleButtonClick = (filterType, label, isActive) => {
@@ -38,6 +39,51 @@ function Body() {
     });
   };
   
+  const [countrySearch, setCountrySearch] = useState('');
+  const [brewerySearch, setBrewerySearch] = useState('');  
+
+  const handleCountrySearchChange = (event) => {
+    setCountrySearch(event.target.value);
+  };
+  
+  const handleBrewerySearchChange = (event) => {
+    setBrewerySearch(event.target.value);
+  };
+  
+  const [alcoholPercentageFrom, setAlcoholPercentageFrom] = useState(null);
+  const [alcoholPercentageTo, setAlcoholPercentageTo] = useState(null);
+  
+  const handleAlcoholPercentageFromChange = (event) => {
+    const value = event.target.value;
+    if (value === '' || parseFloat(value) >= 0) {
+      setAlcoholPercentageFrom(value);
+    }
+  };
+  
+  const handleAlcoholPercentageToChange = (event) => {
+    const value = event.target.value;
+    if (value === '' || parseFloat(value) >= 0) {
+      setAlcoholPercentageTo(value);
+    }
+  };
+  
+  useEffect(() => {
+    const flatBeerData = BeerData.flat();
+    if (flatBeerData.length > 0) {
+      const abvValues = flatBeerData.map(beer => beer.abv).filter(abv => !isNaN(parseFloat(abv)));
+      const minAbv = Math.min(...abvValues);
+      const maxAbv = Math.max(...abvValues);
+
+      if (alcoholPercentageFrom === null) {
+        setAlcoholPercentageFrom(minAbv.toString());
+      }
+      if (alcoholPercentageTo === null) {
+        setAlcoholPercentageTo(maxAbv.toString());
+      }
+    }
+  }, [alcoholPercentageFrom, alcoholPercentageTo]);
+
+
   const [priceRange, setPriceRange] = useState([0, 100]);
 
   const handleRangeChange = (newRange) => {
@@ -45,6 +91,15 @@ function Body() {
   };
 
   const filterBeers = () => {
+
+    const flatBeerData = BeerData.flat();
+    const abvValues = flatBeerData.map(beer => beer.abv).filter(abv => !isNaN(parseFloat(abv)));
+    const minAbv = Math.min(...abvValues);
+    const maxAbv = Math.max(...abvValues);
+
+    const alcoholPercentageFromVal = alcoholPercentageFrom !== null ? parseFloat(alcoholPercentageFrom) : minAbv;
+    const alcoholPercentageToVal = alcoholPercentageTo !== null ? parseFloat(alcoholPercentageTo) : maxAbv;
+
     return BeerData.map(row =>
       row.filter(beer => {
         if (!beer) return false;
@@ -65,6 +120,23 @@ function Body() {
         if (activeFilters.packageType.length > 0 && !activeFilters.packageType.includes(beer.package_type)) {
           return false;
         }
+
+        if (countrySearch && beer.country && !beer.country.toLowerCase().includes(countrySearch.toLowerCase())) {
+          return false;
+        }
+  
+        if (brewerySearch && beer.brewery && !beer.brewery.toLowerCase().includes(brewerySearch.toLowerCase())) {
+          return false;
+        }
+        
+        const alcoholPercentage = beer.abv;
+        console.log('Alcohol percentage:', alcoholPercentage);
+        console.log('Alcohol percentage from:', alcoholPercentageFromVal);
+        console.log('Alcohol percentage to:', alcoholPercentageToVal);
+        if (!isNaN(alcoholPercentage)) {
+          if (alcoholPercentageFromVal > alcoholPercentage) return false;
+          if (alcoholPercentageToVal < alcoholPercentage) return false;
+        }
         return true;
       })
     ).filter(row => row.length > 0); // Filter out empty rows
@@ -78,7 +150,10 @@ function Body() {
     return { rows, cols };
   };
   
+
   const filteredBeers = filterBeers();
+  console.log('Filtered beers:', filteredBeers);
+  console.log('Active filters:', activeFilters);
 
   const min = BeerData.flat().length > 0 ? Math.floor(BeerData.flat().reduce((min, beer) => beer.price < min.price ? beer : min).price) : 0;
   const max = BeerData.flat().length > 0 ? Math.ceil(BeerData.flat().reduce((max, beer) => beer.price > max.price ? beer : max).price) : 0;
@@ -106,7 +181,7 @@ function Body() {
           <div className='dropdown'>
             <Dropdown />
           </div>
-          <BeerGrid rows={filteredBeers.length} cols={filteredBeers[0].length} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
+          <BeerGrid rows={filteredBeers.length} cols={filteredBeers.length > 0 ? filteredBeers[0].length : 0} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
         </div>
       </div>
 
@@ -145,6 +220,8 @@ function Body() {
             <input
               type='search'
               placeholder='Search for country'
+              value={countrySearch}
+              onChange={handleCountrySearchChange}
             />
             <img className='search-pic' src={searchIcon} />
           </div>
@@ -156,6 +233,8 @@ function Body() {
             <input
               type='search'
               placeholder='Search for brewery'
+              value={brewerySearch}
+              onChange={handleBrewerySearchChange}
             />
             <img className='search-pic' src={searchIcon} />
           </div>
@@ -186,20 +265,26 @@ function Body() {
           <div className='alcohol-search-wrapper'>
             <div className='input-wrapper'>
               <span className='input-label'>From</span>
-              <input
-                className='alcohol-percentage-input'
-                type='search'
-                placeholder='ABV'
-              />
+                <input
+                  className='alcohol-percentage-input'
+                  type='number'
+                  placeholder='ABV'
+                  min="0"
+                  value={alcoholPercentageFrom}
+                  onChange={handleAlcoholPercentageFromChange}
+                />
             </div>
             <span className='percentage-text'>%</span>
             <div className='input-wrapper'>
               <span className='input-label'>To</span>
-              <input
-                className='alcohol-percentage-input'
-                type='search'
-                placeholder='ABV'
-              />
+                <input
+                  className='alcohol-percentage-input'
+                  type='number'
+                  placeholder='ABV'
+                  min="0"
+                  value={alcoholPercentageTo}
+                  onChange={handleAlcoholPercentageToChange}
+                />
             </div>
             <span className='percentage-text'>%</span>
           </div>
