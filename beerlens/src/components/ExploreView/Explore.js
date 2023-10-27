@@ -17,6 +17,39 @@ function Body() {
     navigate('/details', { state: { beer } });
   };
 
+  const [sortOption, setSortOption] = useState('');  // Available values can be 'name', 'rating', 'priceAsc', 'priceDesc'
+  const [sortedBeers, setSortedBeers] = useState(BeerData);
+
+  const sortBeers = (beers) => {
+    switch (sortOption) {
+      case 'name':
+        return beers.sort((a, b) => a.name.localeCompare(b.name));
+      case 'rating':
+        return beers.sort((a, b) => b.rating - a.rating);  // Assuming that a higher number means a better rating
+      case 'priceAsc':
+        return beers.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      case 'priceDesc':
+        return beers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      default:
+        return beers;
+    }
+  }
+
+  useEffect(() => {
+    const flatBeerData = BeerData.flat();
+    const sortedBeerData = sortBeers(flatBeerData);
+    const newSortedBeers = [];
+    for (let beer of sortedBeerData) {
+      const rowIndex = Math.floor(sortedBeerData.indexOf(beer) / 3);
+      const colIndex = sortedBeerData.indexOf(beer) % 3;
+      if (!newSortedBeers[rowIndex]) {
+        newSortedBeers[rowIndex] = [];
+      }
+      newSortedBeers[rowIndex][colIndex] = beer;
+    }
+    setSortedBeers(newSortedBeers);
+  }, [sortOption]);
+
   const [activeFilters, setActiveFilters] = useState({
     beerType: [],
     assortmentType: [],
@@ -100,7 +133,7 @@ function Body() {
     const alcoholPercentageFromVal = alcoholPercentageFrom !== null ? parseFloat(alcoholPercentageFrom) : minAbv;
     const alcoholPercentageToVal = alcoholPercentageTo !== null ? parseFloat(alcoholPercentageTo) : maxAbv;
 
-    return BeerData.map(row =>
+    return sortedBeers.map(row =>
       row.filter(beer => {
         if (!beer) return false;
   
@@ -130,16 +163,12 @@ function Body() {
         }
         
         const alcoholPercentage = beer.abv;
-        console.log('Alcohol percentage:', alcoholPercentage);
-        console.log('Alcohol percentage from:', alcoholPercentageFromVal);
-        console.log('Alcohol percentage to:', alcoholPercentageToVal);
         if (!isNaN(alcoholPercentage)) {
           if (alcoholPercentageFromVal > alcoholPercentage) return false;
           if (alcoholPercentageToVal < alcoholPercentage) return false;
         }
         return true;
-      })
-    ).filter(row => row.length > 0); // Filter out empty rows
+      })).filter(row => row.length > 0); // Filter out empty rows
   };
 
 
@@ -152,9 +181,6 @@ function Body() {
   
 
   const filteredBeers = filterBeers();
-  console.log('Filtered beers:', filteredBeers);
-  console.log('Active filters:', activeFilters);
-
   const min = BeerData.flat().length > 0 ? Math.floor(BeerData.flat().reduce((min, beer) => beer.price < min.price ? beer : min).price) : 0;
   const max = BeerData.flat().length > 0 ? Math.ceil(BeerData.flat().reduce((max, beer) => beer.price > max.price ? beer : max).price) : 0;
   
@@ -179,7 +205,7 @@ function Body() {
       <div className='BeerGrid-container'>
         <div className='BeerGrid-side'>
           <div className='dropdown'>
-            <Dropdown />
+            <Dropdown setSortOption={setSortOption} />
           </div>
           <BeerGrid rows={filteredBeers.length} cols={filteredBeers.length > 0 ? filteredBeers[0].length : 0} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
         </div>

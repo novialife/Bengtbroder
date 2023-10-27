@@ -21,7 +21,7 @@ export function ImageButton(onclick_path, image_path) {
     );
 }
 
-export function Dropdown() {
+export function Dropdown({ setSortOption }) {
 
     const [open, setOpen] = React.useState(false);
     
@@ -31,21 +31,25 @@ export function Dropdown() {
     
       const handleSortByName = () => {
         console.log("Sort by name");
+        setSortOption('name');
         setOpen(false);
       };
-    
+      
       const handleSortByRating = () => {
         console.log("Sort by rating");
+        setSortOption('rating');
         setOpen(false);
       };
-
+      
       const handleSortByPriceAsc = () => {
         console.log("Sort by price ascending");
+        setSortOption('priceAsc');
         setOpen(false);
       };
-
+      
       const handleSortByPriceDesc = () => {
         console.log("Sort by price descending");
+        setSortOption('priceDesc');
         setOpen(false);
       };
 
