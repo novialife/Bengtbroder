@@ -7,6 +7,8 @@ import loginIcon from '../../assets/images/user_icon.png';
 import savedIcon from '../../assets/images/saved.png';
 import shoppingCart from '../../assets/images/shopping_cart.png';
 import { ImageButton } from './utils';
+import { useNavigate } from 'react-router-dom';
+
 
 function Header() {
   const [countries, setCountries] = useState([]);
@@ -27,6 +29,12 @@ function Header() {
       });
   }, [BACKEND_URL]);
 
+  const navigate = useNavigate();
+
+  const redirectToHome = () => {
+    navigate('/');
+  };
+
   return (
     <div className='header-container'>
       <div className='left-section'>
@@ -44,7 +52,9 @@ function Header() {
       </div>
 
       <div className='right-section'>
-        <button className='Header-Button'>Our Beers</button>
+        <button className='Header-Button' onClick={redirectToHome}>
+            Our Beers
+        </button>
 
         <button className='Header-Button'>Contact Us</button>
 

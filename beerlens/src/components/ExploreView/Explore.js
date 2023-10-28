@@ -12,9 +12,9 @@ import { useNavigate } from 'react-router-dom';
 function Body() {
   const navigate = useNavigate();
 
-  const handleBeerItemClick = (row, col, beer) => {
+  const handleBeerItemClick = (beer) => {
     console.log('Selected beer:', beer);
-    navigate('/details', { state: { beer } });
+    navigate(`/details/${beer.id}`);
   };
 
   const [sortOption, setSortOption] = useState('');  // Available values can be 'name', 'rating', 'priceAsc', 'priceDesc'
@@ -60,6 +60,7 @@ function Body() {
   });
 
   const handleButtonClick = (filterType, label, isActive) => {
+    // Set the filter as active or inactive
     setActiveFilters(prevFilters => {
       const currentFilters = prevFilters[filterType] || [];
       const updatedFilters = isActive
@@ -70,6 +71,11 @@ function Body() {
         [filterType]: updatedFilters,
       };
     });
+  
+    // If the filter is being set to inactive, remove it from the active filters
+    if (!isActive) {
+      removeFilter(filterType, label);
+    }
   };
   
   const [countrySearch, setCountrySearch] = useState('');
@@ -171,7 +177,6 @@ function Body() {
       })).filter(row => row.length > 0); // Filter out empty rows
   };
 
-
   const calcRowsCols = (length) => {
     if (length <= 0) return { rows: 0, cols: 0 };
     const cols = Math.min(3, length);
@@ -180,7 +185,22 @@ function Body() {
   };
   
 
-  const filteredBeers = filterBeers();
+  let filteredBeers = filterBeers();
+  
+  // Flatten the array
+  filteredBeers = filteredBeers.flat();
+
+  // Create a new array with a single row of up to 3 columns
+  if (filteredBeers.length < 4) {
+    filteredBeers = [filteredBeers];
+  } else {
+    // Split the array back into rows of 3 columns if there are 4 or more items
+    const numberOfRows = Math.ceil(filteredBeers.length / 3);
+    filteredBeers = Array.from({ length: numberOfRows }, (_, rowIndex) => {
+      return filteredBeers.slice(rowIndex * 3, rowIndex * 3 + 3);
+    });
+  }
+
   const min = BeerData.flat().length > 0 ? Math.floor(BeerData.flat().reduce((min, beer) => beer.price < min.price ? beer : min).price) : 0;
   const max = BeerData.flat().length > 0 ? Math.ceil(BeerData.flat().reduce((max, beer) => beer.price > max.price ? beer : max).price) : 0;
   
@@ -200,17 +220,53 @@ function Body() {
   const unique_package_types = Array.from(new Set(all_package_types));
   const { rows: package_type_rows, cols: package_type_cols } = calcRowsCols(unique_package_types.length);
 
+
+  const getActiveFilters = () => {
+    const activeFiltersArray = [];
+    Object.entries(activeFilters).forEach(([key, value]) => {
+      if (Array.isArray(value) && value.length > 0) {
+        value.forEach(filter => activeFiltersArray.push({ type: key, label: filter }));
+      } else if (typeof value === 'object' && (value.from || value.to)) {
+        if (value.from) activeFiltersArray.push({ type: key, label: `From: ${value.from}` });
+        if (value.to) activeFiltersArray.push({ type: key, label: `To: ${value.to}` });
+      }
+    });
+    return activeFiltersArray;
+  };
+  
+  const activeFiltersArray = getActiveFilters();
+
+  const renderActiveFilterButtons = () => {
+    return activeFiltersArray.map((filter, index) => (
+      <button key={index} className="active-filter-button">
+        {filter.label}
+        <span onClick={() => removeFilter(filter)}>X</span>
+      </button>
+    ));
+  };
+
+  const removeFilter = (filterType, label) => {
+    // Set the filter as inactive
+    setActiveFilters(prevFilters => {
+      const updatedFilters = { ...prevFilters };
+      if (Array.isArray(updatedFilters[filterType])) {
+        updatedFilters[filterType] = updatedFilters[filterType].filter(l => l !== label);
+      } else if (filterType === 'alcoholPercentage') {
+        // If it's the alcohol percentage filter, reset it to the default range
+        updatedFilters.alcoholPercentage = { from: '', to: '' };
+      }
+      return updatedFilters;
+    });
+  
+    // Trigger a "click" event on the corresponding filter button
+    const filterButton = document.querySelector(`.filter-button[data-filter-type="${filterType}"][data-label="${label}"]`);
+    if (filterButton) {
+      filterButton.click();
+    }
+  };
+
   return (
     <div className='container'>
-      <div className='BeerGrid-container'>
-        <div className='BeerGrid-side'>
-          <div className='dropdown'>
-            <Dropdown setSortOption={setSortOption} />
-          </div>
-          <BeerGrid rows={filteredBeers.length} cols={filteredBeers.length > 0 ? filteredBeers[0].length : 0} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
-        </div>
-      </div>
-
       <div className='filter-side'>
         <div className='beer-type-filter'>
           <h4 className='filter-label'>Beer Type</h4>
@@ -314,6 +370,40 @@ function Body() {
             </div>
             <span className='percentage-text'>%</span>
           </div>
+        </div>
+      </div>
+      <div className='BeerGrid-container'>
+        <div className='BeerGrid-side'>
+          <div className='filters-container'>
+            <div className='dropdown'>
+              <Dropdown setSortOption={setSortOption} />
+            </div>
+            {Object.entries(activeFilters).map(([filterType, labels]) => {
+              if (Array.isArray(labels)) {
+                return labels.map(label => (
+                  <button
+                    className='active-filter-button'
+                    key={`${filterType}-${label}`}
+                    onClick={() => removeFilter(filterType, label)}
+                  >
+                    {label} <span>X</span>
+                  </button>
+                ));
+              } else if (filterType === 'alcoholPercentage' && (labels.from || labels.to)) {
+                return (
+                  <button
+                    className='active-filter-button'
+                    key={`${filterType}-range`}
+                    onClick={() => removeFilter(filterType)}
+                  >
+                    ABV: {labels.from || '0'}% - {labels.to || '100'}% <span>X</span>
+                  </button>
+                );
+              }
+              return null;
+            })}
+          </div>
+          <BeerGrid rows={filteredBeers.length} cols={filteredBeers.length > 0 ? filteredBeers[0].length : 0} onButtonClick={handleBeerItemClick} beers={filteredBeers} />
         </div>
       </div>
     </div>

@@ -2,11 +2,12 @@ import React from 'react';
 import './styles/BeerItem.css';
 import { FlagIcon } from 'react-flag-kit';
 import "@fontsource/inter";
+import { useState } from 'react';
 
 
 export class BeerInfo {
-  constructor(id, BeerIcon, name, brewery, country, countryCode, volume, abv, price, type, assortment_type, flavor_profile, package_type) {
-    this.id = id;
+  constructor(BeerIcon, name, brewery, country, countryCode, volume, abv, price, type, assortment_type, flavor_profile, package_type) {
+    this.id = (name + '-' + brewery).replace(/\s+/g, '-');
     this.BeerIcon = BeerIcon;
     this.name = name;
     this.brewery = brewery;
@@ -23,8 +24,14 @@ export class BeerInfo {
 }
 
 export function BeerGrid({ rows, cols, onButtonClick, beers }) {
+
+  const [selectedBeerId, setSelectedBeerId] = useState(null);
+
+  
   const handleClick = (beer) => {
+    setSelectedBeerId(beer.id);
     if (onButtonClick) {
+      console.log('Clicked:', beer);
       onButtonClick(beer);
     }
   };
@@ -62,19 +69,32 @@ export function BeerGrid({ rows, cols, onButtonClick, beers }) {
             <img src={beer.BeerIcon} alt=''/>
           </div>
           <button className="AddToCart-btn" onClick={(e) => addItemToCart(beer, e)}>
-                Add to Cart
+          Add to Cart
           </button>
-        </>
-      </div>
-    );
-  };
+          {selectedBeerId === beer.id}
+      </>
+    </div>
+  );
+};
   
+  
+  const renderPlaceholder = (key) => {
+    return <div key={key} className="BeerItem" style={{ visibility: 'hidden' }} />;
+  };
+
   const renderRow = (row) => {
     const beerRow = beers ? beers[row] : null;
-    if (!beerRow) return null;  // Don't render anything if there is no beer row
+    if (!beerRow) return null;
+
+    // Ensure there are always 3 elements in a row, adding placeholders if necessary
+    const items = [...beerRow];
+    while (items.length < 3) {
+      items.push(null);
+    }
+
     return (
       <div key={row} className="BeerGrid-row">
-        {beerRow.map((beer, col) => renderItem(beer, row, col))}
+        {items.map((beer, col) => beer ? renderItem(beer, row, col) : renderPlaceholder(`${row}-${col}`))}
       </div>
     );
   };
