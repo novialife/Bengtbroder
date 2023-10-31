@@ -83,3 +83,21 @@
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
 }
+
+/* =============== LARGE DEVICES ===============*/
+
+@media screen and (min-width: 1500px) {
+  .aboutContainer {
+    padding: 8%;
+    padding-top: 4%;
+    margin: 0 auto;
+  }
+
+  .team {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  .teamMember {
+    padding: 20px 60px;
+  }
+}
