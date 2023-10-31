@@ -1,69 +1,80 @@
 .container {
-    display: flex;
-    position: relative;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  column-gap: 3%;
+  width: 100%;
 }
 
-.top-row, .BeerGrid-side, .filter-side {
-    width: 100%;
+.BeerGrid-side,
+.filter-side {
+  width: 100%;
 }
 
-.BeerGrid-side, .filter-side, .dropdown {
-    display: flex;
-    flex-direction: column;
+.BeerGrid-side,
+.filter-side,
+.dropdown {
+  display: flex;
+  flex-direction: column;
 }
 
-.BeerGrid-side, .filter-side {
-    padding-top: 50px; /* Adjust as needed - creates space for .top-row */
-}
-
-.BeerGrid-side {
-    position: relative;
-    display: flex; /* Changed from column to row */
-    align-items: flex-end; /* Align items to the top */
-    flex-wrap: wrap; /* Allow items to wrap if necessary */
+.BeerGrid-side,
+.filter-side {
+  padding-top: 50px; /* Adjust as needed - creates space for .top-row */
 }
 
 .filter-side {
-    order: -1;
+  order: -1;
 }
 
 .BeerGrid-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .filters-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-bottom: 8px;
 }
 
 .dropdown {
-  order: 1;
-  margin-left: 10px; /* Adjust as necessary */
-  margin-bottom: 10px; /* Adjust as necessary */
+  align-self: end;
+  width: 100%;
+  margin-bottom: 5px; /* Adjust as necessary */
+}
+
+.active-filter-buttons {
+  align-self: end;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .active-filter-button {
   order: 0;
 }
+
 .active-filter-button {
-    width: 200px;
-    height: 42px;
-    border-radius: 15px;
-    border-width: 2px;
-    padding: 11px 18px 11px 18px;
-    border-color: #FFC22D;
-    border-style: solid;
-    text-align: left;
-    background-color: #FFC22D;
-    margin-bottom: 21px;
-    margin-left: 5px;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  border-width: 2px;
+  padding: 5px 10px 5px 10px;
+  border-color: #ffc22d;
+  border-style: solid;
+  text-align: left;
+  background-color: #ffc22d;
+  margin-bottom: 8px;
+  margin-left: 5px;
+  font-size: 12px;
 }
 
 .active-filter-button span {
-    cursor: pointer;
-    margin-left: 10px;
-    font-weight: bold;
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
 }

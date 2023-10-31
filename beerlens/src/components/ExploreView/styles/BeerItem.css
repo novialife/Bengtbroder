@@ -1,12 +1,7 @@
 .BeerGrid {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 50px;
-}
-
-.BeerGrid-row {
-  display: flex;
-  gap: 100px;
 }
 
 .BeerItem {
