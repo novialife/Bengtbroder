@@ -1,5 +1,6 @@
 .detailsContainer {
   padding: 2%;
+  padding: 5%;
   margin: 0 auto;
 }
 
@@ -8,4 +9,13 @@
   display: block;
   width: 90%;
   border-top: 1px solid #ffc22d;
+}
+
+/* =============== LARGE DEVICES ===============*/
+
+@media screen and (min-width: 1500px) {
+  .detailsContainer {
+    padding: 12%;
+    padding-top: 5%;
+  }
 }

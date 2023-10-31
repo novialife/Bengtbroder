@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import "./styles/DetailsOverview.css";
-import { beerData } from "../../beerData";
-import Rating from "@mui/material/Rating";
-import { BsDot } from "react-icons/bs";
-import { BsFacebook } from "react-icons/bs";
-import { BsInstagram } from "react-icons/bs";
-import { FaXTwitter } from "react-icons/fa6";
-import SaveIcon from "./components/Icons/Save";
-import StarIcon from "@mui/icons-material/Star";
+import React, { useState, useEffect } from 'react';
+import './styles/DetailsOverview.css';
+import { beerData } from '../../beerData';
+import Rating from '@mui/material/Rating';
+import { BsDot } from 'react-icons/bs';
+import { BsFacebook } from 'react-icons/bs';
+import { BsInstagram } from 'react-icons/bs';
+import { FaXTwitter } from 'react-icons/fa6';
+import SaveIcon from './components/Icons/Save';
+import StarIcon from '@mui/icons-material/Star';
 
 const DetailsOverview = () => {
   const [liked, setLiked] = useState(false);
@@ -26,7 +26,7 @@ const DetailsOverview = () => {
         <span className='detailsOverviewRatingAndPrice'>
           <span>
             <span className='detailsOverviewPrice'>{beerData.price}</span>
-            <span className='detailsOverviewCurrency'>{" " + "€"}</span>
+            <span className='detailsOverviewCurrency'>{' ' + '€'}</span>
           </span>
           <span className='detailsOverviewRating'>
             <Rating
@@ -42,14 +42,14 @@ const DetailsOverview = () => {
           </span>
         </span>
         <div className='detailsOverviewNumbers'>
-          <span>{beerData.volume + " ml"}</span>
+          <span>{beerData.volume + ' ml'}</span>
           <BsDot size={30} />
-          <span>{beerData.alcoholPercentage + " % vol"}</span>
+          <span>{beerData.alcoholPercentage + ' % vol'}</span>
           <BsDot size={30} />
-          <span>{beerData.assortment + " assortment"}</span>
+          <span>{beerData.assortment + ' assortment'}</span>
         </div>
         <div className='detailsOverviewOrigin'>
-          <span>{beerData.brewery + ", " + beerData.country}</span>
+          <span>{beerData.brewery + ', ' + beerData.country}</span>
           <img className='detailsOverviewFlag' src={beerData.flag} />
         </div>
         <span className='detailsOverviewLine'></span>
@@ -57,17 +57,19 @@ const DetailsOverview = () => {
         <span className='detailsOverviewLine'></span>
         <div className='detailsOverviewLinks'>
           <button className='detailsOverviewOriginBtn'>Add to cart</button>
-          <span className='detailsOverviewOriginDot'>·</span>
           <span className='detailsOverviewStock'>
-            In stock:
-            {beerData.numberInStock > 10
-              ? " 50+"
-              : " " + beerData.numberInStock}
+            <span className='detailsOverviewOriginDot'>·</span>
+            <span>
+              In stock:
+              {beerData.numberInStock > 10
+                ? ' 50+'
+                : ' ' + beerData.numberInStock}
+            </span>
           </span>
           <span>
-            Expected delivery:{" "}
+            Expected delivery:{' '}
             {beerData.expectedDeliveryDate.month.substring(0, 3) +
-              " " +
+              ' ' +
               beerData.expectedDeliveryDate.day}
           </span>
           <span className='detailsOverviewShare'>
