@@ -4,7 +4,7 @@ import Header from './components/ExploreView/Header';
 import Explore from './components/ExploreView/Explore';
 import { Route, Routes } from 'react-router-dom';
 import Details from './components/DetailsView/Details';
-import Reviews from './components/DetailsView/Reviews';
+import About from './components/AboutView/About';
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Explore />} />
         <Route path='/details' element={<Details />} />
+        <Route path='/about' element={<About />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
-

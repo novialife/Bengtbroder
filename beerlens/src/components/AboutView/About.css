@@ -1,0 +1,85 @@
+.aboutContainer {
+  padding: 5%;
+  padding-top: 4%;
+  margin: 0 auto;
+}
+
+.aboutTitle {
+  color: #000000;
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.aboutText {
+  padding: 2% 10%;
+  padding-top: 0%;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 20px 30px;
+}
+
+.teamMemberImage {
+  margin-bottom: 20px;
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.teamMemberName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.teamMemberText {
+  width: 300px;
+  font-size: 15px;
+  text-align: left;
+}
+
+.iconMail {
+  font-size: 50px;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.iconLinkedin {
+  font-size: 37px;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.iconMail:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.iconLinkedin:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
