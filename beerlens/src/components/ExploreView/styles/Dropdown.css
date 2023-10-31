@@ -1,77 +1,76 @@
 .dropdown {
-    position: absolute; 
-    top: 0; 
-    z-index: 10; 
-    right: calc((100% - (2 * BeerItemWidth) - GapBetweenBeerItems) / 2);
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  right: calc((100% - (2 * BeerItemWidth) - GapBetweenBeerItems) / 2);
 }
 
 .menu {
-    position: absolute;
-    top: 100%; /* Positions the dropdown right below the trigger button */
-    left: 0; /* Aligns the dropdown to the left edge of the trigger button */
-    list-style-type: none;
-    margin: 5px 0;
-    padding: 0;
-    border: 1px solid grey;
-    width: 200px;
-    border-color: #FFC22D;
-    z-index: 20;
-
+  position: absolute;
+  top: 100%; /* Positions the dropdown right below the trigger button */
+  left: 0; /* Aligns the dropdown to the left edge of the trigger button */
+  list-style-type: none;
+  margin: 5px 0;
+  padding: 0;
+  width: 170px;
+  z-index: 20;
+  border-radius: 10px;
+  border: 1px solid #ffc22d;
+  background-color: white;
 }
 
 .menu > li {
-    margin: 0;
-    background-color: white;
+  margin: 0;
+  font-size: 15px;
 }
 
 .menu > li:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .menu > li > button {
-    width: 100%;
-    height: 100%;
-    text-align: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 5px;
-    margin: 0;
-    font: inherit;
-    cursor: pointer;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 5px;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
 }
 
 .trigger-button {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 200px;
-    height: 42px;
-    border-radius: 15px;
-    border-width: 2px;
-    padding: 11px 18px 11px 18px;
-    border-color: #FFC22D;
-    border-style: solid;
-    background-color: white;
-    text-align: left;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  width: 170px;
+  height: 42px;
+  border-radius: 15px;
+  border-width: 1.4px;
+  padding: 11px 18px 11px 18px;
+  border-color: #ffc22d;
+  border-style: solid;
+  background-color: white;
+  text-align: left;
 }
 
-
 .trigger-button .arrow::after {
-    content: "";
-    position: relative;
-    width: 0;
-    height: 0;
-    border: 8px solid transparent;
-    border-top-color: #FFC22D; 
-    border-bottom: 0;
-    margin-right: 10px; 
-  }
+  content: '';
+  position: relative;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: #ffc22d;
+  border-bottom: 0;
+  margin-right: 10px;
+}
 
-  .arrow {
-    fill: #FFC22D; 
-    margin-right: 10px; 
-  }
+.arrow {
+  fill: #ffc22d;
+  margin-right: 10px;
+}
