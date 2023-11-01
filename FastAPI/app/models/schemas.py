@@ -36,3 +36,31 @@ class BeerInfo(BeerInfoInDBBase):
 
 class BeerInfoInDB(BeerInfoInDBBase):
     pass
+
+
+
+class BeerReviewBase(BeerInfoBase):
+    flag: str = Field(..., max_length=255, pattern=r'^[\w\s\-]+$')
+    overview_description: str = Field(..., max_length=255, pattern=r'^[\w\s\-]+$')
+    number_in_stock: int = Field(..., ge=0)
+    expected_delivery_date: dict = Field(..., max_length=255)
+    taste_description: dict = Field(..., max_length=255)
+    pairings: dict = Field(..., max_length=255)
+    about: dict = Field(..., max_length=255)
+    reviews: dict = Field(..., max_length=255)
+    ratings: dict = Field(..., max_length=255)
+
+
+class BeerReviewInDBBase(BeerReviewBase):
+    id: UUID
+    BeerIcon: Optional[bytes]  # Using bytes to represent BLOB
+
+    class Config:
+        orm_mode = True
+        json_encoders = {bytes: lambda v: b64encode(v).decode('utf-8')}
+
+class BeerReview(BeerReviewInDBBase):
+    pass
+
+class BeerReviewInDB(BeerReviewInDBBase):
+    pass

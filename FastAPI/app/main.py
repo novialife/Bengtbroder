@@ -38,3 +38,11 @@ async def read_beers(skip: int = 0, limit: int = 100, db: Session = Depends(get_
     beers = crud.get_all_beers(db)
     return beers
 
+
+@app.get("/details/{beer_type}/{beer_name}/{beer_id}", response_model=schemas.BeerReview)
+async def read_beer(beer_type: str, beer_name: str, beer_id: str, db: Session = Depends(get_db)):
+    beer = crud.get_beer_by_id(db, beer_id)
+    if beer is None:
+        raise HTTPException(status_code=404, detail="Beer not found")
+    return beer
+

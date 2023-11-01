@@ -2,7 +2,6 @@
     {
         "name": "Deus Brut Des Flandres",
         "flag": "belgiumFlag",
-        "image": "./Images/deus_brut_des_flandres.png",
         "overview_description": "Fruity, slightly sour taste with sweetness and clear character of apples, hints of honey and bitter orange. Served at 6-8°C as a companion drink, or with not too sweet fruit and berry desserts.",
         "number_in_stock": 100,
         "expected_delivery_date": {
@@ -62,8 +61,7 @@
     },
     {
         "name": "Grand Cru 2023",
-        "flag": "path/to/swedenFlag.png",
-        "image": "./Images/vreta_kloster_grand_cru_2023.png",
+        "flag": "swedenFlag",
         "overview_description": "Grand Cru 2023 offers a luxurious and bold flavor profile, perfect for those who appreciate the depth and complexity of dark ales. Its 10.2% ABV is well-integrated, providing a warming sensation that complements the beer’s rich maltiness.",
         "number_in_stock": 150,
         "expected_delivery_date": {
@@ -124,8 +122,7 @@
     },
     {
         "name": "The Holy Grail 2022",
-        "flag": "path/to/swedenFlag.png",
-        "image": "./Images/vega_bryggeri_the_holy_grail_2022.png",
+        "flag": "swedenFlag",
         "overview_description": "The Holy Grail 2022 is a masterfully crafted Dark Ale from Vega Bryggeri, showcasing a delightful blend of fruity notes and robust malts. With an 11.3% ABV, it offers a full-bodied experience with a balance that is both intricate and satisfying.",
         "number_in_stock": 80,
         "expected_delivery_date": {
@@ -185,8 +182,7 @@
       },
       {
         "name": "Hydra 7 berries",
-        "flag": "path/to/usaFlag.png",
-        "image": "./Images/mortalis_hydra_7.png",
+        "flag": "usaFlag",
         "overview_description": "Hydra 7 berries is an intricate Sour Ale from Mortalis Brewing Company, intricately crafted to deliver a medley of berry flavors. With a 7% ABV, it offers a tantalizing balance between tartness and sweetness, capturing the essence of seven different berries in every sip.",
         "number_in_stock": 120,
         "expected_delivery_date": {
@@ -246,8 +242,7 @@
       },
       {
         "name": "Bianca Hydra Blueberry Banana Split Lassi Gose",
-        "flag": "path/to/belgiumFlag.png",
-        "image": "./Images/omnipollo_mortalis_bianca_hydra.png",
+        "flag": "belgiumFlag",
         "overview_description": "A deliciously tart and fruity Sour Ale, Bianca Hydra combines the decadence of a banana split with the tanginess of blueberries, creating a unique and delightful lassi gose experience. Brewed by Omnipollo in collaboration with Mortalis, this beer stands out with its 6% ABV and intricate flavor profile.",
         "number_in_stock": 110,
         "expected_delivery_date": {
@@ -308,8 +303,7 @@
       },
       {
         "name": "Andromeda",
-        "flag": "path/to/swedenFlag.png",
-        "image": "./Images/omnipollo_andromeda.png",
+        "flag": "swedenFlag",
         "overview_description": "Andromeda, a robust stout from the renowned Omnipollo brewery in Sweden, boasts an impressive 15.2% ABV. This beer offers a rich and complex flavor profile that is sure to delight stout lovers.",
         "number_in_stock": 90,
         "expected_delivery_date": {
