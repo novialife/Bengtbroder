@@ -21,6 +21,15 @@ export function ImageButton(onclick_path, image_path) {
     );
 }
 
+export function Base64Image({ base64String }) {
+  return (
+    <img
+      src={`data:image/png;base64,${base64String}`}
+      alt=''
+    />
+  );
+}
+
 export function Dropdown({ setSortOption }) {
 
     const [open, setOpen] = React.useState(false);

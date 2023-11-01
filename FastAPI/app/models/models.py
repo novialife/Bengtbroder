@@ -9,7 +9,7 @@ Base = declarative_base()
 class BeerInfo(Base):
     __tablename__ = "BeerInfo"
 
-    id = Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid.uuid4)
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     BeerIcon = Column(LargeBinary)
     name = Column(String(255), nullable=False)
     brewery = Column(String(255), nullable=False)
@@ -22,3 +22,5 @@ class BeerInfo(Base):
     assortment_type = Column(String(255), nullable=False)
     flavor_profile = Column(String(255), nullable=False)
     package_type = Column(String(255), nullable=False)
+    rating_count = Column(Float, nullable=False)
+    rating_score = Column(Float, nullable=False)

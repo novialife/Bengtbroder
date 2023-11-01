@@ -3,42 +3,23 @@ import './styles/Explore.css';
 import { Dropdown } from './utils';
 import { BeerGrid } from './BeerItem';
 import { FilterMatrix, RangeSlider } from './Filters';
-import BeerData from './BeerData';
 import '@fontsource/inter';
 import searchIcon from '../../assets/images/search_icon.png';
 import { useNavigate } from 'react-router-dom';
+import { getBeers } from './getBeers';
 
 function Body() {
   const navigate = useNavigate();
-
-  const handleBeerItemClick = (beer) => {
-    console.log('Selected beer:', beer);
-    navigate(`/details/${beer.type}/${beer.name + '-' + beer.brewery}/${beer.id}`);
-  };
-
-  const [sortOption, setSortOption] = useState(''); // Available values can be 'name', 'rating', 'priceAsc', 'priceDesc'
-  const [sortedBeers, setSortedBeers] = useState(BeerData);
-
-  const sortBeers = (beers) => {
-    switch (sortOption) {
-      case 'name':
-        return beers.sort((a, b) => a.name.localeCompare(b.name));
-      case 'rating':
-        return beers.sort((a, b) => b.rating - a.rating); // Assuming that a higher number means a better rating
-      case 'priceAsc':
-        return beers.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-      case 'priceDesc':
-        return beers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-      default:
-        return beers;
-    }
-  };
-
-  useEffect(() => {
-    const flatBeerData = BeerData.flat();
-    const sortedBeerData = sortBeers(flatBeerData);
-    setSortedBeers(sortedBeerData);
-  }, [sortOption]);
+  
+  const [BeerData, setBeerData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [sortOption, setSortOption] = useState('');
+  const [sortedBeers, setSortedBeers] = useState([]);
+  const [countrySearch, setCountrySearch] = useState('');
+  const [brewerySearch, setBrewerySearch] = useState('');
+  const [alcoholPercentageFrom, setAlcoholPercentageFrom] = useState(null);
+  const [alcoholPercentageTo, setAlcoholPercentageTo] = useState(null);
+  const [priceRange, setPriceRange] = useState([0, 100]);
 
   const [activeFilters, setActiveFilters] = useState({
     beerType: [],
@@ -48,52 +29,28 @@ function Body() {
     alcoholPercentage: { from: '', to: '' },
   });
 
-  const handleButtonClick = (filterType, label, isActive) => {
-    // Set the filter as active or inactive
-    setActiveFilters((prevFilters) => {
-      const currentFilters = prevFilters[filterType] || [];
-      const updatedFilters = isActive
-        ? [...currentFilters, label]
-        : currentFilters.filter((l) => l !== label);
-      return {
-        ...prevFilters,
-        [filterType]: updatedFilters,
-      };
-    });
-
-    // If the filter is being set to inactive, remove it from the active filters
-    if (!isActive) {
-      removeFilter(filterType, label);
+  useEffect(() => {
+    async function fetchBeers() {
+      try {
+        const beers = await getBeers();
+        setBeerData(beers);
+        setSortedBeers(beers);
+      } catch (error) {
+        console.error("Failed to fetch beers:", error);
+        setBeerData([]);
+        setSortedBeers([]);
+      } finally {
+        setLoading(false);
+      }
     }
-  };
+    fetchBeers();
+  }, []);
 
-  const [countrySearch, setCountrySearch] = useState('');
-  const [brewerySearch, setBrewerySearch] = useState('');
-
-  const handleCountrySearchChange = (event) => {
-    setCountrySearch(event.target.value);
-  };
-
-  const handleBrewerySearchChange = (event) => {
-    setBrewerySearch(event.target.value);
-  };
-
-  const [alcoholPercentageFrom, setAlcoholPercentageFrom] = useState(null);
-  const [alcoholPercentageTo, setAlcoholPercentageTo] = useState(null);
-
-  const handleAlcoholPercentageFromChange = (event) => {
-    const value = event.target.value;
-    if (value === '' || parseFloat(value) >= 0) {
-      setAlcoholPercentageFrom(value);
-    }
-  };
-
-  const handleAlcoholPercentageToChange = (event) => {
-    const value = event.target.value;
-    if (value === '' || parseFloat(value) >= 0) {
-      setAlcoholPercentageTo(value);
-    }
-  };
+  useEffect(() => {
+    const flatBeerData = BeerData.flat();
+    const sortedBeerData = sortBeers(flatBeerData);
+    setSortedBeers(sortedBeerData);
+  }, [sortOption]);
 
   useEffect(() => {
     const flatBeerData = BeerData.flat();
@@ -113,7 +70,74 @@ function Body() {
     }
   }, [alcoholPercentageFrom, alcoholPercentageTo]);
 
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const sortBeers = (beers) => {
+    switch (sortOption) {
+      case 'name':
+        return beers.sort((a, b) => a.name.localeCompare(b.name));
+      case 'rating':
+        return beers.sort((a, b) => b.rating - a.rating); // Assuming that a higher number means a better rating
+      case 'priceAsc':
+        return beers.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      case 'priceDesc':
+        return beers.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      default:
+        return beers;
+    }
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (BeerData.length === 0) {
+    return <div>No beers found.</div>;
+  }
+
+  const handleBeerItemClick = (beer) => {
+    console.log('Selected beer:', beer);
+    navigate(`/details/${beer.type.replace(/ /g, '-')}/${beer.name.replace(/ /g, '-') + '-' + beer.brewery.replace(/ /g, '-')}/${beer.id}`);
+  };
+
+  const handleButtonClick = (filterType, label, isActive) => {
+    // Set the filter as active or inactive
+    setActiveFilters((prevFilters) => {
+      const currentFilters = prevFilters[filterType] || [];
+      const updatedFilters = isActive
+        ? [...currentFilters, label]
+        : currentFilters.filter((l) => l !== label);
+      return {
+        ...prevFilters,
+        [filterType]: updatedFilters,
+      };
+    });
+
+    // If the filter is being set to inactive, remove it from the active filters
+    if (!isActive) {
+      removeFilter(filterType, label);    //Uncomment this later
+    }
+  };
+
+  const handleCountrySearchChange = (event) => {
+    setCountrySearch(event.target.value);
+  };
+
+  const handleBrewerySearchChange = (event) => {
+    setBrewerySearch(event.target.value);
+  };
+
+  const handleAlcoholPercentageFromChange = (event) => {
+    const value = event.target.value;
+    if (value === '' || parseFloat(value) >= 0) {
+      setAlcoholPercentageFrom(value);
+    }
+  };
+
+  const handleAlcoholPercentageToChange = (event) => {
+    const value = event.target.value;
+    if (value === '' || parseFloat(value) >= 0) {
+      setAlcoholPercentageTo(value);
+    }
+  };
 
   const handleRangeChange = (newRange) => {
     setPriceRange(newRange);

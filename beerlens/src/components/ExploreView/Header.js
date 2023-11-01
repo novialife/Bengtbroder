@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './styles/Header.css';
-import axios from 'axios';
 import logo from '../../assets/images/logo.png';
 import searchIcon from '../../assets/images/search_icon.png';
 import loginIcon from '../../assets/images/user_icon.png';
@@ -10,23 +9,6 @@ import { ImageButton } from './utils';
 import { useNavigate } from 'react-router-dom';
 
 function Header() {
-  const [countries, setCountries] = useState([]);
-  const BACKEND_URL =
-    process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
-
-  useEffect(() => {
-    axios
-      .get(`${BACKEND_URL}/countries`)
-      .then((response) => {
-        setCountries(response.data);
-      })
-      .catch((error) => {
-        console.error(
-          'There was an error fetching countries from backend',
-          error
-        );
-      });
-  }, [BACKEND_URL]);
 
   const navigate = useNavigate();
 

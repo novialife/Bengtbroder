@@ -3,6 +3,7 @@ import './styles/BeerItem.css';
 import { FlagIcon } from 'react-flag-kit';
 import '@fontsource/inter';
 import { useState } from 'react';
+import { Base64Image } from './utils.js';
 
 export class BeerInfo {
   constructor(
@@ -18,21 +19,25 @@ export class BeerInfo {
     type,
     assortment_type,
     flavor_profile,
-    package_type
+    package_type,
+    rating_count,
+    rating_score,
   ) {
     this.id = id;
     this.BeerIcon = BeerIcon;
-    this.name = name.replace(/ /g, '-');
-    this.brewery = brewery.replace(/ /g, '-');
+    this.name = name.length > 30 ? name.substring(0, 27) + '...' : name;
+    this.brewery = brewery;
     this.country = country;
     this.countryCode = countryCode;
     this.volume = volume;
     this.abv = abv;
     this.price = price;
-    this.type = type.replace(/ /g, '-');;
-    this.assortment_type = assortment_type.replace(/ /g, '-');;
-    this.flavor_profile = flavor_profile.replace(/ /g, '-');;
-    this.package_type = package_type.replace(/ /g, '-');;
+    this.type = type;
+    this.assortment_type = assortment_type;
+    this.flavor_profile = flavor_profile;
+    this.package_type = package_type;
+    this.rating_count = rating_count;
+    this.rating_score = rating_score;
   }
 }
 
@@ -80,7 +85,7 @@ export function BeerGrid({ onButtonClick, beers }) {
                 <div>${beer.price}</div>
               </div>
             </div>
-            <img src={beer.BeerIcon} alt='' />
+            <Base64Image base64String={beer.BeerIcon} />
           </div>
           <button
             className='AddToCart-btn'

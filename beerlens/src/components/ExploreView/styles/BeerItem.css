@@ -34,7 +34,8 @@
 }
 
 .BeerItem img {
-  width: 80px;
+  max-width: 45px;
+  width: 100%;
   height: auto;
   align-self: center;
 }

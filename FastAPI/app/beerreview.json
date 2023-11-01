@@ -1,0 +1,371 @@
+[
+    {
+        "name": "Deus Brut Des Flandres",
+        "flag": "belgiumFlag",
+        "image": "./Images/deus_brut_des_flandres.png",
+        "overview_description": "Fruity, slightly sour taste with sweetness and clear character of apples, hints of honey and bitter orange. Served at 6-8°C as a companion drink, or with not too sweet fruit and berry desserts.",
+        "number_in_stock": 100,
+        "expected_delivery_date": {
+            "month": "October",
+            "day": 19
+        },
+        "taste_description": {
+            "scent": "Malty aroma with hints of rye bread, crackers, orange marmalade, spices and dried fruit.",
+            "flavor": "Malty taste with hints of rye bread, crackling, orange peel, spices and dried fruit.",
+            "color": "Brownish yellow color."
+        },
+        "pairings": {
+            "food": [
+            "Chocolate Mousse",
+            "Fried Camembert",
+            "Goat Cheese"
+            ],
+            "servingTips": [
+            "Served at 6-8°C as a companion drink, or with not too sweet fruit and berry desserts."
+            ]
+        },
+        "about": {
+            "ingredients": [
+            "Barley malt",
+            "wheat",
+            "hops",
+            "apple juice"
+            ],
+            "brewery": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam turpis nec accumsan imperdiet. Curabitur rutrum facilisis ultricies. Sed feugiat auctor neque non porta. Maecenas risus dui, rhoncus ornare mauris id, lacinia varius nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sem libero, cursus sit amet rutrum non, egestas nec lectus. Cras tempor metus ut arcu auctor, et malesuada ipsum interdum."
+        },
+        "reviews": [
+            {
+            "name": "Hanna Snarberg",
+            "rating": 4,
+            "text": "I really recommend this beer. It is quite similar to Rocheford 10. Will definitely order it again."
+            },
+            {
+            "name": "Alfred Knowles",
+            "rating": 4,
+            "text": "I had this beer with goat cheese as suggested and I highly recommend."
+            },
+            {
+            "name": "Filip Mattsson",
+            "rating": 4,
+            "text": "Similar in taste to Gueuzerie. But this was even better. It was amazing actually."
+            },
+            {
+            "name": "Mervan Kaya",
+            "rating": 4,
+            "text": "All my friends and I loved this beer. Perfect for a chill night."
+            }
+        ],
+        "ratings": {
+            "average": 4.2,
+            "stars_distribution": [75, 15, 5, 3, 2]
+        }
+    },
+    {
+        "name": "Grand Cru 2023",
+        "flag": "path/to/swedenFlag.png",
+        "image": "./Images/vreta_kloster_grand_cru_2023.png",
+        "overview_description": "Grand Cru 2023 offers a luxurious and bold flavor profile, perfect for those who appreciate the depth and complexity of dark ales. Its 10.2% ABV is well-integrated, providing a warming sensation that complements the beer’s rich maltiness.",
+        "number_in_stock": 150,
+        "expected_delivery_date": {
+            "month": "November",
+            "day": 25
+        },
+        "taste_description": {
+            "scent": "Aromas of dark chocolate, toffee, and a hint of dark fruits such as plums and raisins.",
+            "flavor": "A rich and robust flavor profile with notes of caramelized malts, dark chocolate, and a subtle sweetness that balances the beer’s full body.",
+            "color": "A deep, dark brown hue with a tan head that lingers."
+        },
+        "pairings": {
+            "food": [
+            "Grilled meats",
+            "Blue cheese",
+            "Dark chocolate desserts"
+            ],
+            "servingTips": [
+            "Best enjoyed at a slightly warmer temperature, around 10-12°C, to fully appreciate the depth of its flavors."
+            ]
+        },
+        "about": {
+            "ingredients": [
+            "Premium dark malts",
+            "Caramel malts",
+            "A blend of aromatic hops",
+            "Pure spring water",
+            "Top-fermenting yeast"
+            ],
+            "brewery": "Vreta Kloster Bryggeri, nestled in the heart of Sweden, is renowned for its commitment to quality and its passion for crafting exceptional beers that stand the test of time."
+        },
+        "reviews": [
+            {
+            "name": "Emma Larsson",
+            "rating": 5,
+            "text": "Grand Cru 2023 blew me away with its rich flavors and smooth finish. It’s like a symphony of dark chocolate and caramel in every sip. Absolutely divine!"
+            },
+            {
+            "name": "Gustav Svensson",
+            "rating": 5,
+            "text": "This is by far one of the best dark ales I've ever had. The complexity and depth of flavors are outstanding. A must-try for any beer aficionado."
+            },
+            {
+            "name": "Isabella Johansson",
+            "rating": 4,
+            "text": "I really enjoyed the Grand Cru 2023, especially the notes of dark chocolate and toffee. It paired wonderfully with a blue cheese platter we had."
+            },
+            {
+            "name": "Oscar Nilsson",
+            "rating": 4,
+            "text": "A robust and flavorful beer, perfect for sipping on a cold evening. The malty sweetness is well-balanced, making it a great choice for those new to dark ales."
+            }
+        ],
+        "ratings": {
+            "average": 4.5,
+            "stars_distribution": [130, 18, 3, 1, 0]
+        }
+    },
+    {
+        "name": "The Holy Grail 2022",
+        "flag": "path/to/swedenFlag.png",
+        "image": "./Images/vega_bryggeri_the_holy_grail_2022.png",
+        "overview_description": "The Holy Grail 2022 is a masterfully crafted Dark Ale from Vega Bryggeri, showcasing a delightful blend of fruity notes and robust malts. With an 11.3% ABV, it offers a full-bodied experience with a balance that is both intricate and satisfying.",
+        "number_in_stock": 80,
+        "expected_delivery_date": {
+          "month": "November",
+          "day": 10
+        },
+        "taste_description": {
+          "scent": "A rich bouquet of dark fruits, cherries, and a hint of vanilla, creating a captivating aroma.",
+          "flavor": "Layers of fruity sweetness, balanced by a solid malt backbone, delivering flavors of ripe berries, dark chocolate, and a touch of spice.",
+          "color": "A deep, dark amber color with a resilient beige head."
+        },
+        "pairings": {
+          "food": [
+            "Braised meats",
+            "Aged cheeses",
+            "Berry-based desserts"
+          ],
+          "servingTips": [
+            "Best enjoyed at a temperature of around 10°C, allowing the complexity of the beer to unfold beautifully."
+          ]
+        },
+        "about": {
+          "ingredients": [
+            "Specialty dark malts",
+            "Ripe berries",
+            "A blend of noble hops",
+            "Top-fermenting yeast"
+          ],
+          "brewery": "Vega Bryggeri, situated in Sweden, has earned a reputation for its dedication to the art of brewing, consistently delivering beers that are both complex and enjoyable."
+        },
+        "reviews": [
+          {
+            "name": "Johanna Karlsson",
+            "rating": 4,
+            "text": "The Holy Grail 2022 is an exquisite Dark Ale, rich in fruity flavors yet perfectly balanced. A true gem from Vega Bryggeri!"
+          },
+          {
+            "name": "Erik Andersson",
+            "rating": 4,
+            "text": "With its deep, dark appearance and luscious berry notes, this beer is a standout. It pairs wonderfully with aged cheese."
+          },
+          {
+            "name": "Sara Lindberg",
+            "rating": 5,
+            "text": "I was pleasantly surprised by The Holy Grail 2022. The fruity undertones add a unique twist to the traditional Dark Ale, making it a memorable drink."
+          },
+          {
+            "name": "Daniel Gustafsson",
+            "rating": 4,
+            "text": "A delightful beer with a rich flavor profile. The berry notes are prominent but well-balanced by the malty sweetness. Highly recommended!"
+          }
+        ],
+        "ratings": {
+          "average": 4.2,
+          "stars_distribution": [62, 40, 15, 5, 2]
+        }
+      },
+      {
+        "name": "Hydra 7 berries",
+        "flag": "path/to/usaFlag.png",
+        "image": "./Images/mortalis_hydra_7.png",
+        "overview_description": "Hydra 7 berries is an intricate Sour Ale from Mortalis Brewing Company, intricately crafted to deliver a medley of berry flavors. With a 7% ABV, it offers a tantalizing balance between tartness and sweetness, capturing the essence of seven different berries in every sip.",
+        "number_in_stock": 120,
+        "expected_delivery_date": {
+          "month": "November",
+          "day": 15
+        },
+        "taste_description": {
+          "scent": "A vibrant burst of mixed berries, with prominent cherry and raspberry notes, and a subtle hint of citrus.",
+          "flavor": "A complex berry blend, dominated by cherry and complemented by layers of raspberry, blackberry, and strawberry, creating a harmonious and tantalizing taste.",
+          "color": "A deep, ruby red hue that promises a berry-packed adventure."
+        },
+        "pairings": {
+          "food": [
+            "Cheesecake",
+            "Grilled white meats",
+            "Salads with vinaigrette dressing"
+          ],
+          "servingTips": [
+            "Chill well before serving to enhance the refreshing berry flavors. Pairs excellently with desserts or light dishes."
+          ]
+        },
+        "about": {
+          "ingredients": [
+            "A variety of seven berries",
+            "Pilsner malt",
+            "Wheat",
+            "Lactobacillus"
+          ],
+          "brewery": "Mortalis Brewing Company, located in the USA, is renowned for its commitment to quality and innovation, consistently producing exceptional and flavor-packed beers."
+        },
+        "reviews": [
+          {
+            "name": "Emily Turner",
+            "rating": 3,
+            "text": "Hydra 7 berries has a nice berry punch but is a bit too tart for my liking. It’s refreshing, though, and I can see how others might enjoy it."
+          },
+          {
+            "name": "Michael Johnson",
+            "rating": 4,
+            "text": "The berry blend in this beer is fantastic! I love the tartness balanced with the sweetness. It’s a great beer for a hot day."
+          },
+          {
+            "name": "Rachel Wilson",
+            "rating": 4,
+            "text": "This is one of my favorite sour ales! The berry flavors are so vibrant and fresh. Highly recommended for anyone who loves fruity beers."
+          },
+          {
+            "name": "Joshua Brown",
+            "rating": 3,
+            "text": "Hydra 7 berries is a decent sour ale. The berry flavors are good, but it was a bit sourer than I typically prefer."
+          }
+        ],
+        "ratings": {
+          "average": 3.8,
+          "stars_distribution": [40, 30, 25, 5, 3]
+        }
+      },
+      {
+        "name": "Bianca Hydra Blueberry Banana Split Lassi Gose",
+        "flag": "path/to/belgiumFlag.png",
+        "image": "./Images/omnipollo_mortalis_bianca_hydra.png",
+        "overview_description": "A deliciously tart and fruity Sour Ale, Bianca Hydra combines the decadence of a banana split with the tanginess of blueberries, creating a unique and delightful lassi gose experience. Brewed by Omnipollo in collaboration with Mortalis, this beer stands out with its 6% ABV and intricate flavor profile.",
+        "number_in_stock": 110,
+        "expected_delivery_date": {
+          "month": "November",
+          "day": 12
+        },
+        "taste_description": {
+          "scent": "An aromatic blend of ripe bananas, sweet blueberries, and a hint of tangy yogurt.",
+          "flavor": "A delightful balance of sweetness and tartness, with prominent banana and blueberry notes, followed by a creamy lassi finish.",
+          "color": "A vibrant purple hue, reminiscent of ripe blueberries."
+        },
+        "pairings": {
+          "food": [
+            "Vanilla Ice Cream",
+            "Fruit Tarts",
+            "Light Salads"
+          ],
+          "servingTips": [
+            "Best served chilled to enhance the fruity and tart characteristics. Perfect for dessert or as a refreshing drink on a warm day."
+          ]
+        },
+        "about": {
+          "ingredients": [
+            "Blueberries",
+            "Bananas",
+            "Lactobacillus for tartness",
+            "Pilsner Malt",
+            "Wheat"
+          ],
+          "brewery": "Omnipollo x Mortalis, based in Belgium, is celebrated for its innovative brewing techniques and unique flavor combinations, creating memorable beer experiences."
+        },
+        "reviews": [
+          {
+            "name": "Sophia Leclerc",
+            "rating": 4,
+            "text": "The blend of banana and blueberry in this beer is incredible! It’s like a dessert in a can. Absolutely love it!"
+          },
+          {
+            "name": "Liam Verstraete",
+            "rating": 4,
+            "text": "Never thought I’d enjoy a beer with banana in it, but this one proved me wrong. The balance of flavors is just perfect."
+          },
+          {
+            "name": "Amelie De Smet",
+            "rating": 3,
+            "text": "It’s an interesting beer for sure. I liked the fruity notes, but it was a bit too tart for my taste."
+          },
+          {
+            "name": "Jasper Maes",
+            "rating": 4,
+            "text": "Bianca Hydra is a unique experience! The combination of blueberry and banana works surprisingly well. A must-try for sour beer lovers."
+          }
+        ],
+        "ratings": {
+          "average": 3.9,
+          "stars_distribution": [30, 35, 30, 3, 2]
+        }
+      },
+      {
+        "name": "Andromeda",
+        "flag": "path/to/swedenFlag.png",
+        "image": "./Images/omnipollo_andromeda.png",
+        "overview_description": "Andromeda, a robust stout from the renowned Omnipollo brewery in Sweden, boasts an impressive 15.2% ABV. This beer offers a rich and complex flavor profile that is sure to delight stout lovers.",
+        "number_in_stock": 90,
+        "expected_delivery_date": {
+          "month": "November",
+          "day": 20
+        },
+        "taste_description": {
+          "scent": "Rich aromas of dark chocolate, roasted malts, and a hint of dark fruit.",
+          "flavor": "Intense flavors of espresso, bitter chocolate, and a touch of sweetness to balance the robustness.",
+          "color": "Deep, dark brown, almost black in color with a tan head."
+        },
+        "pairings": {
+          "food": [
+            "Grilled Meats",
+            "Dark Chocolate Desserts",
+            "Blue Cheese"
+          ],
+          "servingTips": [
+            "Best served at a slightly warmer temperature, around 12-14°C, to allow the complex flavors to shine."
+          ]
+        },
+        "about": {
+          "ingredients": [
+            "Roasted Barley",
+            "Malted Wheat",
+            "Chocolate Malt",
+            "Hops"
+          ],
+          "brewery": "Omnipollo, based in Sweden, is known for its innovative and high-quality craft beers, consistently delivering unique and enjoyable beer experiences."
+        },
+        "reviews": [
+          {
+            "name": "Elin Gustafsson",
+            "rating": 5,
+            "text": "The intensity of this stout is just phenomenal. The chocolate and coffee flavors are so well balanced. A masterpiece!"
+          },
+          {
+            "name": "Axel Lindberg",
+            "rating": 4,
+            "text": "A very robust and intense stout, but incredibly well crafted. Omnipollo has done it again!"
+          },
+          {
+            "name": "Linnéa Ekström",
+            "rating": 4,
+            "text": "Andromeda is a beer for those who truly appreciate a rich and bold stout. The flavors are complex and linger on the palate."
+          },
+          {
+            "name": "Oscar Johansson",
+            "rating": 5,
+            "text": "This is one of the best stouts I've ever had. The high ABV is well integrated, and the beer is just bursting with flavor."
+          }
+        ],
+        "ratings": {
+          "average": 4.6,
+          "stars_distribution": [50, 25, 15, 3, 2]
+        }
+      }      
+]
+  
