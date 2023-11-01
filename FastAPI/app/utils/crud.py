@@ -1,27 +1,23 @@
 from sqlalchemy.orm import Session
 from models import models, schemas
+from uuid import UUID
 
 
-def get_user(db: Session, user_id: int):
-    return db.query(models.User).filter(models.User.id == user_id).first()
+def get_all_beers(db: Session):
+    return db.query(models.BeerInfo).all()
 
-def get_user_by_email(db: Session, email: str):
-    return db.query(models.User).filter(models.User.email == email).first()
+def get_beer(db: Session, beer_id: UUID):
+    return db.query(models.BeerInfo).filter(models.BeerInfo.id == beer_id).first()
 
-def create_user(db: Session, user: schemas.UserCreate):
-    hashed_password = hash(user.password)
-    db_user = models.User(email=user.email, hashed_password=hashed_password)
-    db.add(db_user)
+def check_beer(db: Session, beer_id: UUID):
+    if db.query(models.BeerInfo).filter(models.BeerInfo.id == beer_id).first():
+        return True
+    else:
+        return False
+
+def create_beer(db: Session, beer_data: dict):
+    db_beer = models.BeerInfo(**beer_data)
+    db.add(db_beer)
     db.commit()
-    db.refresh(db_user)
-    return db_user
-
-def check_user(db: Session, user: schemas.UserCreate):
-    db_user = get_user_by_email(db, email=user.email)
-    if db_user:
-        if db_user.hashed_password == hash(user.password):
-            return True
-    return False
-
-def get_countries():
-    return ["Sweden", "Norway", "Finland", "Denmark", "Iceland"]
+    db.refresh(db_beer)
+    return db_beer

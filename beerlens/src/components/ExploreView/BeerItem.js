@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export class BeerInfo {
   constructor(
+    id, 
     BeerIcon,
     name,
     brewery,
@@ -19,19 +20,19 @@ export class BeerInfo {
     flavor_profile,
     package_type
   ) {
-    this.id = (name + '-' + brewery).replace(/\s+/g, '-');
+    this.id = id;
     this.BeerIcon = BeerIcon;
-    this.name = name;
-    this.brewery = brewery;
+    this.name = name.replace(/ /g, '-');
+    this.brewery = brewery.replace(/ /g, '-');
     this.country = country;
     this.countryCode = countryCode;
     this.volume = volume;
     this.abv = abv;
     this.price = price;
-    this.type = type;
-    this.assortment_type = assortment_type;
-    this.flavor_profile = flavor_profile;
-    this.package_type = package_type;
+    this.type = type.replace(/ /g, '-');;
+    this.assortment_type = assortment_type.replace(/ /g, '-');;
+    this.flavor_profile = flavor_profile.replace(/ /g, '-');;
+    this.package_type = package_type.replace(/ /g, '-');;
   }
 }
 

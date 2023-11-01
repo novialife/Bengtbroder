@@ -13,7 +13,7 @@ function Body() {
 
   const handleBeerItemClick = (beer) => {
     console.log('Selected beer:', beer);
-    navigate(`/details/${beer.id}`);
+    navigate(`/details/${beer.type}/${beer.name + '-' + beer.brewery}/${beer.id}`);
   };
 
   const [sortOption, setSortOption] = useState(''); // Available values can be 'name', 'rating', 'priceAsc', 'priceDesc'

@@ -1,8 +1,10 @@
 import { BeerInfo } from './BeerItem';
-import Image from '../../assets/images/brewdog_punk_ipa.png';
+import Image from '../../assets/images/brewdog_punk_ipa.png';import { v4 as uuidv4 } from 'uuid';
+
 
 const BeerData = [
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 1',
     'Brewery A',
@@ -17,6 +19,7 @@ const BeerData = [
     'Bottle'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 2',
     'Brewery B',
@@ -31,6 +34,7 @@ const BeerData = [
     'Can'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 3',
     'Brewery D',
@@ -45,6 +49,7 @@ const BeerData = [
     'Bottle'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 4',
     'Brewery E',
@@ -59,6 +64,7 @@ const BeerData = [
     'Can'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 5',
     'Brewery G',
@@ -73,6 +79,7 @@ const BeerData = [
     'Bottle'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 6',
     'Brewery H',
@@ -87,6 +94,7 @@ const BeerData = [
     'Can'
   ),
   new BeerInfo(
+    uuidv4(), 
     Image,
     'Beer Name 7',
     'Brewery J',
