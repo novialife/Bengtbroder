@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, exists
 from sqlalchemy.orm import sessionmaker, declarative_base
 from models.models import BeerInfo, BeerReview
 import json
@@ -15,7 +15,21 @@ Base = declarative_base()
 
 def load_data_to_db():
     Base.metadata.create_all(bind=engine)
+
+    # Check if any data already exists in the BeerInfo or BeerReview tables
+    db = SessionLocal()
+    try:
+        beer_info_exists = db.query(exists().where(BeerInfo.id != None)).scalar()
+        beer_review_exists = db.query(exists().where(BeerReview.id != None)).scalar()
+        if beer_info_exists or beer_review_exists:
+            print("Data already exists in the database. Aborting data loading.")
+            return
     
+    except Exception as e:
+        print("No data exists in the database")
+    finally:
+        db.close()
+
     # Load BeerInfo data
     db = SessionLocal()
     try:
