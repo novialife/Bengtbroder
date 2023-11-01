@@ -8,30 +8,33 @@ import { BsInstagram } from 'react-icons/bs';
 import { FaXTwitter } from 'react-icons/fa6';
 import SaveIcon from './components/Icons/Save';
 import StarIcon from '@mui/icons-material/Star';
+import { Base64Image } from '../ExploreView/utils'
 
-const DetailsOverview = () => {
+const DetailsOverview = (beerData) => {
   const [liked, setLiked] = useState(false);
-
+  
   return (
     <div className='detailsOverviewContainer'>
-      <img className='detailsOverviewImage' src={beerData.image} />
+         <div className='detailsOverviewImage'>
+            <Base64Image base64String={beerData.beerData.BeerIcon} />
+          </div>
       <div className='detailsOverviewInfo'>
-        <div className='detailsOverviewType'>{beerData.type.toUpperCase()}</div>
+        <div className='detailsOverviewType'>{beerData.beerData.type.toUpperCase()}</div>
         <div className='detailsOverviewNameAndSave'>
-          <span className='detailsOverviewName'>{beerData.name}</span>
+          <span className='detailsOverviewName'>{beerData.beerData.name}</span>
           <span className='detailsOverviewSave'>
             <SaveIcon isSolid={liked} onClick={() => setLiked(!liked)} />
           </span>
         </div>
         <span className='detailsOverviewRatingAndPrice'>
           <span>
-            <span className='detailsOverviewPrice'>{beerData.price}</span>
-            <span className='detailsOverviewCurrency'>{' ' + '€'}</span>
+            <span className='detailsOverviewPrice'>{beerData.beerData.price}</span>
+            <span className='detailsOverviewCurrency'>{' ' + '$'}</span>
           </span>
           <span className='detailsOverviewRating'>
             <Rating
               name='read-only'
-              value={beerData.ratingAverage}
+              value={beerData.beerData.rating_score}
               precision={0.1}
               size='medium'
               readOnly
@@ -42,18 +45,18 @@ const DetailsOverview = () => {
           </span>
         </span>
         <div className='detailsOverviewNumbers'>
-          <span>{beerData.volume + ' ml'}</span>
+          <span>{beerData.beerData.volume}</span>
           <BsDot size={30} />
-          <span>{beerData.alcoholPercentage + ' % vol'}</span>
+          <span>{beerData.beerData.abv + ' % vol'}</span>
           <BsDot size={30} />
-          <span>{beerData.assortment + ' assortment'}</span>
+          <span>{beerData.beerData.assortment_type + ' assortment'}</span>
         </div>
         <div className='detailsOverviewOrigin'>
-          <span>{beerData.brewery + ', ' + beerData.country}</span>
-          <img className='detailsOverviewFlag' src={beerData.flag} />
+          <span>{beerData.beerData.brewery + ', ' + beerData.beerData.country}</span>
+          <img className='detailsOverviewFlag' src={beerData.beerData.flag} />
         </div>
         <span className='detailsOverviewLine'></span>
-        <div>{beerData.overviewDescription}</div>
+        <div>{beerData.beerData.overview_description.replace(/Â/g, '')}</div>
         <span className='detailsOverviewLine'></span>
         <div className='detailsOverviewLinks'>
           <button className='detailsOverviewOriginBtn'>Add to cart</button>
@@ -61,16 +64,16 @@ const DetailsOverview = () => {
             <span className='detailsOverviewOriginDot'>·</span>
             <span>
               In stock:
-              {beerData.numberInStock > 10
+              {beerData.beerData.number_in_stock > 10
                 ? ' 50+'
-                : ' ' + beerData.numberInStock}
+                : ' ' + beerData.beerData.number_in_stock}
             </span>
           </span>
           <span>
             Expected delivery:{' '}
-            {beerData.expectedDeliveryDate.month.substring(0, 3) +
+            {beerData.beerData.expected_delivery_date.month.substring(0, 3) +
               ' ' +
-              beerData.expectedDeliveryDate.day}
+              beerData.beerData.expected_delivery_date.day}
           </span>
           <span className='detailsOverviewShare'>
             <BsFacebook size='22' />

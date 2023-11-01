@@ -30,7 +30,7 @@
             "hops",
             "apple juice"
             ],
-            "brewery": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam turpis nec accumsan imperdiet. Curabitur rutrum facilisis ultricies. Sed feugiat auctor neque non porta. Maecenas risus dui, rhoncus ornare mauris id, lacinia varius nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis sem libero, cursus sit amet rutrum non, egestas nec lectus. Cras tempor metus ut arcu auctor, et malesuada ipsum interdum."
+            "brewery": "Brouwerij Bosteels is a family-owned brewery located in Buggenhout, Belgium, with a rich history that dates back to 1791. The brewery is well-known for its unique and high-quality beers, which have garnered international acclaim."
         },
         "reviews": [
             {
@@ -62,7 +62,7 @@
     {
         "name": "Grand Cru 2023",
         "flag": "swedenFlag",
-        "overview_description": "Grand Cru 2023 offers a luxurious and bold flavor profile, perfect for those who appreciate the depth and complexity of dark ales. Its 10.2% ABV is well-integrated, providing a warming sensation that complements the beer’s rich maltiness.",
+        "overview_description": "Grand Cru 2023 offers a luxurious and bold flavor profile, perfect for those who appreciate the depth and complexity of dark ales. Its 10.2% ABV is well-integrated, providing a warming sensation that complements the beer's rich maltiness.",
         "number_in_stock": 150,
         "expected_delivery_date": {
             "month": "November",
@@ -70,7 +70,7 @@
         },
         "taste_description": {
             "scent": "Aromas of dark chocolate, toffee, and a hint of dark fruits such as plums and raisins.",
-            "flavor": "A rich and robust flavor profile with notes of caramelized malts, dark chocolate, and a subtle sweetness that balances the beer’s full body.",
+            "flavor": "A rich and robust flavor profile with notes of caramelized malts, dark chocolate, and a subtle sweetness that balances the beer's full body.",
             "color": "A deep, dark brown hue with a tan head that lingers."
         },
         "pairings": {
@@ -97,7 +97,7 @@
             {
             "name": "Emma Larsson",
             "rating": 5,
-            "text": "Grand Cru 2023 blew me away with its rich flavors and smooth finish. It’s like a symphony of dark chocolate and caramel in every sip. Absolutely divine!"
+            "text": "Grand Cru 2023 blew me away with its rich flavors and smooth finish. It's like a symphony of dark chocolate and caramel in every sip. Absolutely divine!"
             },
             {
             "name": "Gustav Svensson",
@@ -217,12 +217,12 @@
           {
             "name": "Emily Turner",
             "rating": 3,
-            "text": "Hydra 7 berries has a nice berry punch but is a bit too tart for my liking. It’s refreshing, though, and I can see how others might enjoy it."
+            "text": "Hydra 7 berries has a nice berry punch but is a bit too tart for my liking. It's refreshing, though, and I can see how others might enjoy it."
           },
           {
             "name": "Michael Johnson",
             "rating": 4,
-            "text": "The berry blend in this beer is fantastic! I love the tartness balanced with the sweetness. It’s a great beer for a hot day."
+            "text": "The berry blend in this beer is fantastic! I love the tartness balanced with the sweetness. It's a great beer for a hot day."
           },
           {
             "name": "Rachel Wilson",
@@ -278,17 +278,17 @@
           {
             "name": "Sophia Leclerc",
             "rating": 4,
-            "text": "The blend of banana and blueberry in this beer is incredible! It’s like a dessert in a can. Absolutely love it!"
+            "text": "The blend of banana and blueberry in this beer is incredible! It's like a dessert in a can. Absolutely love it!"
           },
           {
             "name": "Liam Verstraete",
             "rating": 4,
-            "text": "Never thought I’d enjoy a beer with banana in it, but this one proved me wrong. The balance of flavors is just perfect."
+            "text": "Never thought I'd enjoy a beer with banana in it, but this one proved me wrong. The balance of flavors is just perfect."
           },
           {
             "name": "Amelie De Smet",
             "rating": 3,
-            "text": "It’s an interesting beer for sure. I liked the fruity notes, but it was a bit too tart for my taste."
+            "text": "It's an interesting beer for sure. I liked the fruity notes, but it was a bit too tart for my taste."
           },
           {
             "name": "Jasper Maes",

@@ -9,7 +9,7 @@
   margin: 0 auto;
 }
 
-.detailsOverviewImage {
+.detailsOverviewImage > img{
   width: 92px;
 }
 

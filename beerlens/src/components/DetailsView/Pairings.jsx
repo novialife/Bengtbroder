@@ -1,8 +1,7 @@
 import React from 'react';
 import './styles/Pairings.css';
-import { beerData } from '../../beerData';
 
-const Pairings = () => {
+const Pairings = (beerData) => {
   return (
     <div id='pairings'>
       <div className='pairings-grid-container'>
@@ -11,14 +10,14 @@ const Pairings = () => {
         <div className='pairings-grid-item'>
           <h2>Goes well with</h2>
           <ul>
-            {beerData.pairings.food.map((item, index) => (
+            {beerData.beerData.pairings.food.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
         </div>
         <div className='pairings-grid-item'>
           <h2>Serving tips</h2>
-          <p>{beerData.pairings.servingTips}</p>
+          <p>{beerData.beerData.pairings.servingTips[0].replace(/Â/g, '')}</p>
         </div>
       </div>
     </div>

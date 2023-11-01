@@ -5,6 +5,8 @@ from pydantic import BaseModel, Field, HttpUrl
 from uuid import UUID
 from base64 import b64encode
 
+from typing import List, Dict, Union
+
 
 class BeerInfoBase(BaseModel):
     name: str = Field(..., max_length=255, pattern=r'^[\w\s\-]+$')
@@ -37,11 +39,9 @@ class BeerInfo(BeerInfoInDBBase):
 class BeerInfoInDB(BeerInfoInDBBase):
     pass
 
-
-
 class BeerReviewBase(BeerInfoBase):
-    flag: str = Field(..., max_length=255, pattern=r'^[\w\s\-]+$')
-    overview_description: str = Field(..., max_length=255, pattern=r'^[\w\s\-]+$')
+    flag: str = Field(..., max_length=255)
+    overview_description: str = Field(..., max_length=1024)
     number_in_stock: int = Field(..., ge=0)
     expected_delivery_date: dict = Field(..., max_length=255)
     taste_description: dict = Field(..., max_length=255)
@@ -49,7 +49,6 @@ class BeerReviewBase(BeerInfoBase):
     about: dict = Field(..., max_length=255)
     reviews: dict = Field(..., max_length=255)
     ratings: dict = Field(..., max_length=255)
-
 
 class BeerReviewInDBBase(BeerReviewBase):
     id: UUID
@@ -63,4 +62,8 @@ class BeerReview(BeerReviewInDBBase):
     pass
 
 class BeerReviewInDB(BeerReviewInDBBase):
+    pass
+
+class BeerResponse(BeerInfo, BeerReview):
+    reviews: List[Dict[str, Union[str, int]]] = Field(...)
     pass

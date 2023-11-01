@@ -2,9 +2,8 @@ import React from 'react';
 import './styles/Reviews.css';
 import BigReviewCard from './components/BigReviewCard';
 import SmallReviewCard from './components/SmallReviewCard';
-import { beerData } from '../../beerData';
 
-const Reviews = () => {
+const Reviews = (beerData) => {
   return (
     <div id='reviews' className='reviewsContainer'>
       <h1 className='reviewsHeader'>Reviews</h1>
@@ -12,7 +11,7 @@ const Reviews = () => {
         <div class='div1'>
           <BigReviewCard />
         </div>
-        {beerData.reviews.map((review, index) => (
+        {beerData.beerData.reviews.map((review, index) => (
           <div className={'div' + (index + 2).toString()}>
             <SmallReviewCard
               name={review.name}
