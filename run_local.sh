@@ -1,10 +1,17 @@
 #!/bin/bash
 
-# Define the first set of commands as a single string
-FIRST_COMMANDS="cd ./FastAPI/app; pip install -r requirements.txt; uvicorn main:app;"
+# Get the directory where the script is being run
+CURRENT_DIR="$(pwd)"
 
-# Define the second set of commands as a single string
-SECOND_COMMANDS="cd ./beerlens; npm install; npm start;"
+# Define the full paths for the directories
+FASTAPI_DIR="${CURRENT_DIR}/FastAPI/app"
+BEERLENS_DIR="${CURRENT_DIR}/beerlens"
+
+# Define the first set of commands with the full path
+FIRST_COMMANDS="cd \"${FASTAPI_DIR}\"; pip install -r requirements.txt; uvicorn main:app;"
+
+# Define the second set of commands with the full path
+SECOND_COMMANDS="cd \"${BEERLENS_DIR}\"; npm install; npm start;"
 
 # Create an AppleScript string to open a new Terminal window and execute the first set of commands
 osascript <<END
