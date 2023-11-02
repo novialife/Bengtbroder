@@ -5,6 +5,7 @@ import { IoIosMail } from 'react-icons/io';
 import { BsLinkedin } from 'react-icons/bs';
 import Frida from '../../assets/images/Frida.jpeg';
 import Hanna from '../../assets/images/Hanna.jpg';
+import Mervan from '../../assets/images/1633780464064.jpeg';
 
 const About = () => {
   const teamMembers = [
@@ -36,7 +37,7 @@ const About = () => {
           for the website, and documented the machine learning related parts in the report.
         </p>
       ),
-      image: profileImage,
+      image: Mervan,
     },
     {
       name: 'Alfred Knowles',
