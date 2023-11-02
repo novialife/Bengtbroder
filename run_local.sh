@@ -1,29 +1,26 @@
 #!/bin/bash
 
-# Ensure tmux is installed
-if ! command -v tmux &> /dev/null; then
-    echo "tmux could not be found. Please install tmux and run this script again."
-    exit 1
-fi
+# Define the first set of commands as a single string
+FIRST_COMMANDS="cd ./FastAPI/app; pip install -r requirements.txt; uvicorn main:app;"
 
-# Start a new tmux session detached
-SESSION_NAME="website_dev"
-tmux new-session -d -s "$SESSION_NAME"
+# Define the second set of commands as a single string
+SECOND_COMMANDS="cd ./beerlens; npm install; npm start;"
 
-# Navigate to the beerlens directory and install npm packages
-tmux send-keys -t "$SESSION_NAME" 'cd ./beerlens' C-m
-tmux send-keys -t "$SESSION_NAME" 'npm install' C-m
+# Create an AppleScript string to open a new Terminal window and execute the first set of commands
+osascript <<END
+tell application "Terminal"
+    do script "$FIRST_COMMANDS"
+end tell
+END
 
-# Split the window horizontally and navigate to the FastAPI app directory
-tmux split-window -h -t "$SESSION_NAME"
-tmux send-keys -t "${SESSION_NAME}:0.1" 'cd ./FastAPI/app' C-m
-tmux send-keys -t "${SESSION_NAME}:0.1" 'pip install -r requirements.txt' C-m
+# Sleep for a bit to allow the first window to initialize before opening the second one
+sleep 1
 
-# Start the npm development server in the first pane
-tmux send-keys -t "${SESSION_NAME}:0.0" 'npm start' C-m
+# Create an AppleScript string to open a second Terminal window and execute the second set of commands
+osascript <<END
+tell application "Terminal"
+    do script "$SECOND_COMMANDS"
+end tell
+END
 
-# Start the uvicorn server in the second pane
-tmux send-keys -t "${SESSION_NAME}:0.1" 'uvicorn main:app --reload' C-m
-
-# Attach to the tmux session
-tmux attach -t "$SESSION_NAME"
+# This bash script will now execute and create two Terminal windows running the specified commands.
