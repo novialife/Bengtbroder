@@ -1,29 +1,29 @@
 #!/bin/bash
 
+# Ensure tmux is installed
+if ! command -v tmux &> /dev/null; then
+    echo "tmux could not be found. Please install tmux and run this script again."
+    exit 1
+fi
+
+# Start a new tmux session detached
+SESSION_NAME="website_dev"
+tmux new-session -d -s "$SESSION_NAME"
+
 # Navigate to the beerlens directory and install npm packages
-cd ./beerlens || { echo "Failed to find the beerlens directory. Exiting..."; exit 1; }
-npm install || { echo "npm install failed. Exiting..."; exit 1; }
+tmux send-keys -t "$SESSION_NAME" 'cd ./beerlens' C-m
+tmux send-keys -t "$SESSION_NAME" 'npm install' C-m
 
-# Navigate to the FastAPI app directory and install Python requirements
-cd ../FastAPI/app || { echo "Failed to find the FastAPI/app directory. Exiting..."; exit 1; }
-pip install -r requirements.txt || { echo "pip install failed. Exiting..."; exit 1; }
+# Split the window horizontally and navigate to the FastAPI app directory
+tmux split-window -h -t "$SESSION_NAME"
+tmux send-keys -t "${SESSION_NAME}:0.1" 'cd ./FastAPI/app' C-m
+tmux send-keys -t "${SESSION_NAME}:0.1" 'pip install -r requirements.txt' C-m
 
-# Starting the development servers using subshells to handle multiple processes
+# Start the npm development server in the first pane
+tmux send-keys -t "${SESSION_NAME}:0.0" 'npm start' C-m
 
-# Start the npm development server
-(
-    cd ../../beerlens || exit
-    npm start || exit
-) &
-NPM_PID=$!
+# Start the uvicorn server in the second pane
+tmux send-keys -t "${SESSION_NAME}:0.1" 'uvicorn main:app --reload' C-m
 
-# Start the uvicorn server
-(
-    cd ../FastAPI/app || exit
-    uvicorn main:app --reload || exit
-) &
-UVICORN_PID=$!
-
-# Wait for npm and uvicorn servers to exit
-wait $NPM_PID
-wait $UVICORN_PID
+# Attach to the tmux session
+tmux attach -t "$SESSION_NAME"
