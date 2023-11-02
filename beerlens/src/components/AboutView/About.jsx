@@ -25,15 +25,15 @@ const About = () => {
     },
     {
       name: 'Mervan Kaya',
-      mail: 'mailto:hannasn@kth.se',
-      linkedin: null,
+      mail: 'mailto:mckaya@kth.se',
+      linkedin: 'https://www.linkedin.com/in/mervankaya/',
       role: (
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate.
+          My primary contributions were in three parts. The first part was the implementation 
+          of the back-end and parts of the front-end of the website. Secondly, I conducted the
+          Vivino case study which acted as a backbone for the business model for the project.
+          Thirdly, together with Filip, researched, designed and implemented the recommendation engine
+          for the website, and documented the machine learning related parts in the report.
         </p>
       ),
       image: profileImage,
@@ -55,17 +55,14 @@ const About = () => {
     },
     {
       name: 'Filip Mattsson',
-      mail: 'fim@kth.se',
+      mail: 'mailto:fim@kth.se',
       linkedin: 'https://www.linkedin.com/in/fim/',
       role: (
         <p>
-          My primary contribution was in the design and implementation of the recommendation engine, 
-          ensuring that users receive tailored beer suggestions based on their preferences and past interactions. 
-          This involved intricate data analysis, algorithm development, and continuous optimization 
-          to enhance user experience and satisfaction. Additionally, I helped shape the business model, 
-          strategizing on how to monetize the platform while ensuring user retention.
-          My efforts was concentrated around bridging the gap between technology and business to
-          create a holistic and user-centric platform.
+          My primary contribution was in the design and implementation of the recommendation engine, ensuring that users receive tailored beer suggestions based on their preferences and past interactions. 
+          This involved intricate data analysis, algorithm development, and continuous optimization to enhance user experience and satisfaction. 
+          Additionally, I helped shape the business model, strategizing on how to monetize the platform while ensuring user retention.
+          My efforts was concentrated around bridging the gap between technology and business to create a holistic and user-centric platform.
         </p>
       ),
       image: profileImage,
