@@ -24,7 +24,7 @@ export function ImageButton(onclick_path, image_path) {
                 cursor: 'pointer',
                 padding: 0
             }}
-            onClick={() => redirect(onclick_path)}>
+            onClick={() => console.log("Hello")}>
             <div className="icon">
                 <img src={image_path} alt=''/>
             </div>

@@ -32,6 +32,7 @@ function Header() {
             type='search'
             placeholder='Search any beer'
             className='search-bar'
+            disabled={true}
           />
           <img className='search-pic' src={searchIcon} />
         </div>
