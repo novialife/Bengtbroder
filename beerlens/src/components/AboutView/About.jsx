@@ -41,15 +41,12 @@ const About = () => {
     },
     {
       name: 'Alfred Knowles',
-      mail: 'mailto:hannasn@kth.se',
-      linkedin: null,
+      mail: 'mailto:aknowles@kth.se',
+      linkedin: 'https://www.linkedin.com/in/alfred-knowles-60b052193',
       role: (
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate.
+          I conducted interviews to understand our target customers.
+          I took part in developing a business plan for the project and helped investigating the legal landscape for the company.
         </p>
       ),
       image: profileImage,
