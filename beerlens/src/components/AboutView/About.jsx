@@ -6,6 +6,7 @@ import { BsLinkedin } from 'react-icons/bs';
 import Frida from '../../assets/images/Frida.jpeg';
 import Hanna from '../../assets/images/Hanna.jpg';
 import Mervan from '../../assets/images/1633780464064.jpeg';
+import Slacker from '../../assets/images/Alfred.jpg';
 
 const About = () => {
   const teamMembers = [
@@ -49,7 +50,7 @@ const About = () => {
           I took part in developing a business plan for the project and helped investigating the legal landscape for the company.
         </p>
       ),
-      image: profileImage,
+      image: Alfred,
     },
     {
       name: 'Filip Mattsson',
