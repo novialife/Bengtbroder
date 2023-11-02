@@ -1,11 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/BeerType.css';
+import './styles/Header.css';
 import './styles/Dropdown.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function ImageButton(onclick_path, image_path) {
-    return (
+
+  const navigate = useNavigate();
+  
+  const redirect = (path) => {
+    navigate(path);
+  };
+
+  console.log(image_path)
+
+  return (
         <button
             style={{ 
                 background: 'none', 
@@ -13,7 +24,7 @@ export function ImageButton(onclick_path, image_path) {
                 cursor: 'pointer',
                 padding: 0
             }}
-            onClick={() => console.log({onclick_path})}>
+            onClick={() => redirect(onclick_path)}>
             <div className="icon">
                 <img src={image_path} alt=''/>
             </div>

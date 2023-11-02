@@ -23,7 +23,7 @@
   background: #ffe298;
 }
 
-.logo {
+.logo{
   margin-right: 20px;
   padding: 10px;
   border-radius: 80%;
@@ -74,6 +74,8 @@
   font-weight: 700;
   text-align: left;
   color: #e99107;
+  background: none;
+  border: none;
 }
 
 .BeersAboutContactUs {

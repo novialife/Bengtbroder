@@ -23,8 +23,9 @@ function Header() {
   return (
     <div className='header-container'>
       <div className='left-section'>
+        <button className='Header-Button' onClick={redirectToHome}>
         <img className='logo' src={logo} alt='logo' />
-
+        </button>
         <h1 className='Beer-Name'>Beer Lens</h1>
         <div className='search-wrapper'>
           <input
