@@ -50,7 +50,7 @@ const About = () => {
           I took part in developing a business plan for the project and helped investigating the legal landscape for the company.
         </p>
       ),
-      image: Alfred,
+      image: Slacker,
     },
     {
       name: 'Filip Mattsson',
