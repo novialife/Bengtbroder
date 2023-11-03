@@ -9,6 +9,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 import SaveIcon from './components/Icons/Save';
 import StarIcon from '@mui/icons-material/Star';
 import { Base64Image } from '../ExploreView/utils'
+import { FlagIcon } from 'react-flag-kit';
+
 
 const DetailsOverview = (beerData) => {
   const [liked, setLiked] = useState(false);
@@ -53,7 +55,11 @@ const DetailsOverview = (beerData) => {
         </div>
         <div className='detailsOverviewOrigin'>
           <span>{beerData.beerData.brewery + ', ' + beerData.beerData.country}</span>
-          <img className='detailsOverviewFlag' src={beerData.beerData.flag} />
+          <FlagIcon
+                  className='detailsOverviewFlag'
+                  code={beerData.beerData.countryCode}
+                  style={{ width: '15px', height: '10 px' }}
+          />
         </div>
         <span className='detailsOverviewLine'></span>
         <div>{beerData.beerData.overview_description.replace(/Â/g, '')}</div>

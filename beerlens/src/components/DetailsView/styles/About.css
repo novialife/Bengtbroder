@@ -1,11 +1,11 @@
 .about-grid-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
   margin: 0 auto;
   width: 80%;
   padding-top: 30px;
   padding-bottom: 30px;
-  padding-right: 100px;
 }
 
 .about-grid-item {
@@ -14,9 +14,11 @@
 }
 
 .about-grid-container h1 {
+  margin-bottom: -10px;
+  grid-row: 1;
+  grid-column: 1/-1;
   font-size: x-large;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .about-grid-container h2 {
