@@ -26,7 +26,7 @@ function Header() {
         <button className='Header-Button' onClick={redirectToHome}>
         <img className='logo' src={logo} alt='logo' />
         </button>
-        <h1 className='Beer-Name'>Beer Lens</h1>
+        <button className='Beer-Name' onClick={redirectToHome}>Beer Lens</button>
         <div className='search-wrapper'>
           <input
             type='search'
