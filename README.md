@@ -19,7 +19,7 @@ beer lovers to deepen their appreciation and knowledge of various beer types, br
 
 - **Explore Beers**: Discover new and popular beers from a global database.
 - **Rate and Review**: Share your thoughts and experiences with different beers.
-- **Personalized Recommendations**: Get beer suggestions based on your taste preferences.
+- **Personalized Recommendations**: Get beer suggestions based on your taste preferences from the power of BeerBrain!
 - **Create and Share Lists**: Compile lists of your favorite beers and share them with the community.
 - **Community Interaction**: Connect with other beer enthusiasts, follow users, and discuss your favorite brews.
 - **Beer Journal**: Keep track of beers you’ve tried, your ratings, and personal notes.
@@ -90,13 +90,6 @@ Before you begin, ensure you have met the following requirements:
 ## License
 
 All rights reserved.
-
-## Acknowledgments
-
-- Björn Thuresson
-- Henrik Blomgren
-  
-For their guidance and feedback during the course
 
 
    
